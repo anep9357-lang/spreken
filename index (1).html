@@ -1,0 +1,1125 @@
+<!doctype html><html lang="pt-BR" translate="no" class="notranslate"><head><meta charset="utf-8"><meta name="google" content="notranslate"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body><title>Spreken A1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: one task per screen, framed like Dutch station signage (blue band, yellow tag). */
+:root{
+  --bg:#EEF2F8;--panel:#FFFFFF;--soft:#F4F7FC;--ink:#0F1B33;--muted:#53607A;--line:#D3DBE8;
+  --band:#0B3D91;--band-ink:#FFFFFF;--accent:#FFC20E;--accent-ink:#1A1400;--link:#0B3D91;
+  --ok:#14683F;--ok-bg:#DDF3E6;--warn:#7A4300;--warn-bg:#FFEBC7;--info:#0B3D91;--info-bg:#E3EBFA;--focus:#0B3D91;
+  --display:'Barlow Condensed','Arial Narrow',sans-serif;
+  --body:'Atkinson Hyperlegible',system-ui,-apple-system,'Segoe UI',sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0A1222;--panel:#111C33;--soft:#0D182C;--ink:#E8EEFA;--muted:#9AA8C4;--line:#24324F;
+  --band:#16336F;--band-ink:#FFFFFF;--accent:#FFC20E;--accent-ink:#1A1400;--link:#8FB2FF;
+  --ok:#7FDBA6;--ok-bg:#12351F;--warn:#FFD28A;--warn-bg:#3A2B0A;--info:#BBD0FF;--info-bg:#1A2A4D;--focus:#8FB2FF;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0A1222;--panel:#111C33;--soft:#0D182C;--ink:#E8EEFA;--muted:#9AA8C4;--line:#24324F;
+  --band:#16336F;--band-ink:#FFFFFF;--accent:#FFC20E;--accent-ink:#1A1400;--link:#8FB2FF;
+  --ok:#7FDBA6;--ok-bg:#12351F;--warn:#FFD28A;--warn-bg:#3A2B0A;--info:#BBD0FF;--info-bg:#1A2A4D;--focus:#8FB2FF;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px 48px}
+#app{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:14px;min-width:0}
+h1,h2,h3,p{margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+.sign{display:flex;align-items:center;gap:14px;background:var(--band);color:var(--band-ink);border-radius:16px;padding:14px 16px}
+.plat{flex:none;background:var(--accent);color:var(--accent-ink);font:700 30px/1 var(--display);padding:8px 10px;border-radius:8px;letter-spacing:.02em}
+.sign h1{font:700 34px/1 var(--display);text-transform:uppercase;letter-spacing:.04em}
+.sign p{font-size:14px;opacity:.9;margin-top:2px}
+
+.tabs{display:flex;gap:6px;border-bottom:2px solid var(--line)}
+.tabs button{flex:1;background:none;border:0;padding:10px 4px;font:600 18px var(--display);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);border-bottom:4px solid transparent;margin-bottom:-2px;min-height:48px}
+.tabs button[aria-current="page"]{color:var(--ink);border-bottom-color:var(--accent)}
+
+.lead{color:var(--muted)}
+.go{display:block;width:100%;text-align:left;background:var(--accent);color:var(--accent-ink);border:0;border-radius:16px;padding:18px}
+.go .gl{display:block;font:700 34px/1.05 var(--display);text-transform:uppercase;letter-spacing:.03em}
+.go .gs{display:block;font-size:15px;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:var(--panel);border:2px solid var(--line);border-radius:14px;padding:14px;text-align:left;min-height:84px;min-width:0}
+.tile b{display:block;font:700 22px/1.1 var(--display);text-transform:uppercase;letter-spacing:.03em}
+.tile span{display:block;font-size:14px;color:var(--muted);margin-top:4px}
+.tile[disabled]{opacity:.55;cursor:default}
+.stat{font-size:15px;color:var(--muted)}
+.note{background:var(--info-bg);color:var(--info);border-radius:12px;padding:10px 14px;font-size:15px}
+
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.chip{display:inline-block;align-self:flex-start;background:var(--band);color:var(--band-ink);font:600 15px/1 var(--display);text-transform:uppercase;letter-spacing:.08em;padding:5px 10px;border-radius:6px}
+.lab{font:600 14px/1 var(--display);text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+.nl{font-weight:700;font-size:26px;line-height:1.25;overflow-wrap:anywhere}
+.ctx{font-size:19px;color:var(--muted)}
+.blank{font-weight:700;font-size:26px;line-height:1.3;overflow-wrap:anywhere}
+.blank u{display:inline-block;min-width:3.5em;border-bottom:3px solid var(--accent);text-decoration:none}
+.pic{font-size:52px;line-height:1.2;text-align:center;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:16px}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.btn{background:var(--panel);border:2px solid var(--line);border-radius:12px;padding:10px 14px;min-height:48px;font-weight:700}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-size:19px;min-height:56px;width:100%}
+.btn.sm{min-height:44px;padding:8px 12px;font-weight:400}
+.btn[disabled]{opacity:.6;cursor:default}
+.box{background:var(--soft);border-radius:12px;padding:12px 14px;font-size:16px}
+.box b{font-weight:700}
+label{font-weight:700;font-size:16px}
+textarea,input[type=text]{width:100%;font:inherit;font-size:20px;line-height:1.4;padding:12px;background:var(--panel);color:var(--ink);border:2px solid var(--line);border-radius:12px}
+textarea{min-height:92px;resize:vertical}
+textarea.big{min-height:180px;font-size:17px}
+.shead{display:flex;align-items:center;gap:12px}
+.bar{flex:1;height:10px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);border-radius:6px;transition:width .3s}
+.nums{display:flex;flex-wrap:wrap;gap:4px}
+.n{min-width:28px;height:24px;padding:0 4px;display:inline-flex;align-items:center;justify-content:center;border-radius:4px;background:var(--line);color:var(--muted);font:600 14px var(--display)}
+.n.d{background:var(--accent);color:var(--accent-ink)}
+.n.c{background:var(--band);color:var(--band-ink)}
+.lv{display:inline-block;align-self:flex-start;font-weight:700;border-radius:8px;padding:6px 12px}
+.lv-boa{background:var(--ok-bg);color:var(--ok)}
+.lv-quase{background:var(--warn-bg);color:var(--warn)}
+.lv-refazer,.lv-pend{background:var(--info-bg);color:var(--info)}
+.yours{font-size:17px;color:var(--muted)}
+.fix{border-left:6px solid var(--accent);padding-left:12px;display:flex;flex-direction:column;gap:8px}
+.reps{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.dot{width:52px;height:52px;border-radius:50%;border:3px solid var(--line);background:var(--panel);font-weight:700}
+.dot.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid var(--line)}
+.li:first-child{border-top:0}
+.sd{flex:none;width:14px;height:14px;border-radius:50%;margin-top:7px;background:var(--line)}
+.sd.boa{background:var(--ok)}.sd.quase{background:#E0A000}.sd.refazer{background:var(--link)}
+.li p{overflow-wrap:anywhere}
+.li small{display:block;color:var(--muted);font-size:14px;overflow-wrap:anywhere}
+
+details{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:0 14px}
+summary{cursor:pointer;font-weight:700;padding:14px 0;min-height:48px}
+details[open] summary{border-bottom:1px solid var(--line);margin-bottom:10px}
+details>div{padding-bottom:14px;display:flex;flex-direction:column;gap:10px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 14px var(--display);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);white-space:nowrap}
+td:first-child{font-weight:700;white-space:nowrap}
+.pf{display:flex;flex-direction:column;gap:6px}
+.pf small{color:var(--muted)}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(24px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:15px;max-width:calc(100% - 32px);z-index:5}
+.big{font:700 26px/1.2 var(--display);text-transform:uppercase;letter-spacing:.03em}
+.speak{border:3px solid var(--accent)}
+.tm{height:12px;background:var(--line);border-radius:6px;overflow:hidden}
+.tm i{display:block;height:100%;width:100%;background:var(--accent);transform-origin:left;animation:tm 60s linear forwards}
+@keyframes tm{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+.rate{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+.rate .btn{padding:10px 6px}
+.kw{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ptw{font:700 24px/1 var(--display);text-transform:uppercase;letter-spacing:.04em;color:var(--ink)}
+.spd{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.btn.sel{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.spd .lab{flex-basis:100%}
+.plan{border:3px solid var(--accent)}
+.tabs button{font-size:16px;letter-spacing:.03em}
+.micwrap{display:flex;flex-direction:column;align-items:center;gap:8px;padding:6px 0}
+.mic{width:116px;height:116px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);font-size:52px;line-height:1;box-shadow:0 6px 0 rgba(0,0,0,.18)}
+.mic.on{background:#C62828;color:#fff;animation:pulse 1.2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(198,40,40,.5)}50%{box-shadow:0 0 0 18px rgba(198,40,40,0)}}
+.live{font:700 24px/1.3 var(--body);min-height:1.3em;overflow-wrap:anywhere}
+.clar{display:flex;align-items:center;gap:10px}.clar span{font:600 14px var(--display);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.words{display:flex;flex-wrap:wrap;gap:6px}
+.w{padding:6px 10px;border-radius:8px;font-weight:700;font-size:18px}
+.w.ok{background:var(--ok-bg);color:var(--ok)}.w.bad{background:var(--warn-bg);color:var(--warn)}
+.wfix{border-top:1px solid var(--line);padding-top:10px;display:flex;flex-direction:column;gap:8px}
+.btn.sug{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent)}
+.wk{display:flex;gap:6px}
+.wk span{flex:1;text-align:center;font:600 14px var(--display);text-transform:uppercase;color:var(--muted);background:var(--line);border-radius:6px;padding:6px 0}
+.wk span.on{background:var(--ok-bg);color:var(--ok)}
+@media (max-width:380px){.two{grid-template-columns:1fr}.nl,.blank{font-size:23px}}
+@media (prefers-reduced-motion:reduce){.bar i{transition:none}.tm i{animation:none}.mic.on{animation:none}}
+</style>
+
+<div id="app" translate="no" class="notranslate"></div>
+<div id="toast" role="status" hidden></div>
+
+<script>
+try{document.documentElement.setAttribute("translate","no");document.documentElement.classList.add("notranslate");var _m=document.createElement("meta");_m.name="google";_m.content="notranslate";document.head.appendChild(_m)}catch(e){}
+(function(){
+"use strict";
+
+/* ---------- data ---------- */
+var T={
+  wie:["WIE","quem","Ik … / Mijn … / Met mijn …"],
+  wat:["WAT","o quê","Ik … (o verbo vem logo depois)"],
+  waar:["WAAR","onde","Ik woon in … / Ik ga naar …"],
+  waarom:["WAAROM","por quê","…, omdat ik … (verbo no fim)"],
+  hoe:["HOE","como","Ik ga met de … / Ik ben …"],
+  hoevaak:["HOE VAAK","com que frequência","Ik … één keer per week / elke dag"],
+  hoelaat:["HOE LAAT","que horas","Ik … om zeven uur"],
+  hoeveel:["HOEVEEL","quanto / quantos","… twee / drie …"],
+  wanneer:["WANNEER","quando","Op zaterdag … / Om vijf uur …"],
+  welke:["WELKE","qual / quais","Ik vind … leuk / Ik kijk graag …"],
+  watvoor:["WAT VOOR","que tipo de","Ik heb een … / Het is …"],
+  noem:["NOEM ER DRIE","cite três","Ik … brood, kaas en koffie."],
+  ja:["JA / NEE","sim ou não","Ja, ik … / Nee, ik … niet"]
+};
+var MUST={
+  waarom:[/omdat/,"Para WAAROM, use «omdat …» e ponha o verbo no fim: «…, omdat ik dorst heb»."],
+  hoevaak:[/(keer|elke|per |altijd|vaak|soms|nooit|dag|week|maand)/,"Diga a frequência: «één keer per week», «elke dag», «soms»."],
+  hoelaat:[/(uur|\d)/,"Diga a hora: «om zeven uur»."],
+  noem:[/( en |,)/,"Cite três coisas: «brood, kaas en koffie»."]
+};
+var CAT={
+  ding:["COISA","Falta um substantivo (uma coisa).","Olhe a palavra antes do «…»: de / het / een / mijn / nieuwe → vem uma coisa.","Ik zoek een nieuwe … → broek"],
+  plaats:["LUGAR","Falta um lugar.","Depois de naar de / in de / op het → um lugar.","Ga je mee naar … → de bioscoop"],
+  doen:["AÇÃO","Falta uma ação (verbo no infinitivo) ou um destino.","Depois de gaat / moet / wil / zal / kan → verbo no infinitivo, no fim.","Het gaat zo … → regenen"],
+  bijv:["DESCRIÇÃO","Falta uma palavra que descreve.","Depois de is / wordt / vind / voel me → mooi, lekker, ziek, zoet…","De limonade wordt … → zoet"],
+  vervoer:["TRANSPORTE","Falta um meio de transporte.","Depois de «met» → de bus, de fiets, de trein.","Ik ga vandaag met … → de trein"],
+  gevoel:["SENTIMENTO","Falta um sentimento ou sensação.","Depois de «heeft» → verdriet, honger, dorst, pijn.","Ze heeft … → verdriet"],
+  persoon:["PESSOA","Falta uma pessoa ou grupo.","Depois de de / mijn → kinderen, familie, vrienden, huisarts.","Ze roept de … → kinderen"],
+  tijd:["TEMPO","Falta uma duração ou um momento.","«de hele dag», «acht uur», «elke dag».","Hij staat daar … → de hele dag"],
+  zin:["FRASE","Falta o resto de uma oração.","Depois de «dat / omdat / als» o verbo vai para o fim.","Ik hoop dat hij … → aardig is"],
+  getal:["NÚMERO","Falta um número.","Depois de «wordt» + idade → vijftig, zestig…","Ze wordt … → vijftig"]
+};
+var PD={naam:"Maria",stad:"Utrecht",land:"Brazilië",beroep:"leraar",huisdier:"een hond",hobby:"wandelen"};
+
+var vaRaw=[
+["Wat is uw werk?","Qual é o seu trabalho?","wat","Ik werk als …","Ik werk als {beroep}."],
+["Waar woont uw familie?","Onde mora a sua família?","waar","Mijn familie woont in …","Mijn familie woont in {land}."],
+["Wie wonen bij u in huis?","Quem mora com você?","wie","Ik woon met …","Ik woon met mijn partner."],
+["Waar wonen veel Nederlanders?","Onde muitos holandeses moram?","waar","Veel Nederlanders wonen in …","Veel Nederlanders wonen in een huis in de stad."],
+["Waarom drinkt u een glas water?","Por que o senhor bebe um copo de água?","waarom","Ik drink water, omdat ik …","Ik drink water, omdat ik dorst heb."],
+["Wat voor huisdier heeft u?","Que tipo de animal de estimação você tem?","watvoor","Ik heb …","Ik heb {huisdier}."],
+["Wat vindt u van het Nederlandse weer?","O que acha do clima holandês?","wat","Ik vind het weer …","Ik vind het weer koud en nat."],
+["Hoe vaak gaat u naar de markt?","Com que frequência você vai à feira?","hoevaak","Ik ga … keer per week naar de markt.","Ik ga één keer per week naar de markt."],
+["Wat doet u graag met uw familie?","O que gosta de fazer com a sua família?","wat","Met mijn familie ga ik graag …","Met mijn familie ga ik graag {hobby}."],
+["Wat eet u 's ochtends?","O que você come de manhã?","wat","'s Ochtends eet ik …","'s Ochtends eet ik brood met kaas."],
+["Hoe heet u?","Qual é o seu nome?","hoe","Ik heet …","Ik heet {naam}."],
+["Waar komt u vandaan?","De onde você vem?","waar","Ik kom uit …","Ik kom uit {land}."],
+["Waar woont u?","Onde você mora?","waar","Ik woon in …","Ik woon in {stad}."],
+["Hoe oud bent u?","Quantos anos você tem?","hoe","Ik ben … jaar oud.","Ik ben dertig jaar oud."],
+["Welke talen spreekt u?","Que línguas você fala?","welke","Ik spreek …","Ik spreek Portugees en een beetje Nederlands."],
+["Hebt u kinderen?","Você tem filhos?","ja","Ja, ik heb … / Nee, ik heb geen …","Ja, ik heb twee kinderen."],
+["Hoe gaat u naar uw werk?","Como você vai ao trabalho?","hoe","Ik ga met de … naar mijn werk.","Ik ga met de fiets naar mijn werk."],
+["Hoe laat staat u op?","A que horas você levanta?","hoelaat","Ik sta om … uur op.","Ik sta om zeven uur op."],
+["Wat doet u in het weekend?","O que você faz no fim de semana?","wat","In het weekend ga ik …","In het weekend ga ik {hobby}."],
+["Wat drinkt u 's ochtends?","O que você bebe de manhã?","wat","'s Ochtends drink ik …","'s Ochtends drink ik koffie."],
+["Waarom leert u Nederlands?","Por que você aprende holandês?","waarom","Ik leer Nederlands, omdat ik …","Ik leer Nederlands, omdat ik in Nederland woon."],
+["Wanneer hebt u vrij?","Quando você tem folga?","wanneer","Ik heb op … vrij.","Ik heb op zaterdag en zondag vrij."],
+["Hoeveel kost een brood?","Quanto custa um pão?","hoeveel","Een brood kost …","Een brood kost twee euro."],
+["Wat voor weer is het vandaag?","Que tempo faz hoje?","watvoor","Het is vandaag …","Het is vandaag koud en het regent."],
+["Wat is uw favoriete kleur?","Qual é a sua cor favorita?","wat","Mijn favoriete kleur is …","Mijn favoriete kleur is blauw."],
+["Wie belt u vaak?","Para quem você liga com frequência?","wie","Ik bel vaak mijn …","Ik bel vaak mijn moeder."],
+["Waar doet u boodschappen?","Onde você faz compras?","waar","Ik doe boodschappen in …","Ik doe boodschappen in de supermarkt."],
+["Wat doet u 's avonds?","O que você faz à noite?","wat","'s Avonds … ik …","'s Avonds kook ik en kijk ik tv."],
+["Met wie woont u?","Com quem você mora?","wie","Ik woon met …","Ik woon met mijn partner."],
+["Waarom gaat u naar de dokter?","Por que você vai ao médico?","waarom","Ik ga naar de dokter, omdat ik …","Ik ga naar de dokter, omdat ik ziek ben."],
+["Welke dingen neemt u bij het ontbijt? Noem er drie.","Que coisas você toma no café da manhã? Cite três.","noem","Ik neem …, … en …","Ik neem brood, kaas en koffie."],
+["Wat voor groente eet u graag?","Que tipo de legume você gosta de comer?","watvoor","Ik eet graag …","Ik eet graag broccoli."],
+["Hoe vaak kijkt u op uw telefoon?","Com que frequência você olha o celular?","hoevaak","Ik kijk … op mijn telefoon.","Ik kijk elke dag op mijn telefoon."],
+["Wat doet u graag in uw vrije tijd?","O que gosta de fazer no tempo livre?","wat","In mijn vrije tijd ga ik graag …","In mijn vrije tijd ga ik graag {hobby}."],
+["Welke films kijkt u graag?","Que filmes você gosta de assistir?","welke","Ik kijk graag …","Ik kijk graag komedies."],
+["Welke sport vindt u leuk?","Que esporte você acha legal?","welke","Ik vind … leuk.","Ik vind voetbal leuk."],
+["Wat doet u als u honger hebt?","O que você faz quando está com fome?","wat","Als ik honger heb, … ik …","Als ik honger heb, eet ik brood."],
+["Op welke dag bent u vrij?","Em que dia você está de folga?","welke","Ik ben op … vrij.","Ik ben op zondag vrij."],
+["Wat is de naam van uw vader?","Qual é o nome do seu pai?","wat","Mijn vader heet …","Mijn vader heet Pedro."],
+["Welk seizoen vindt u fijn?","Que estação você acha agradável?","welke","Ik vind de … fijn.","Ik vind de zomer fijn."],
+["Welke muziek vindt u mooi?","Que música você acha bonita?","welke","Ik vind … mooi.","Ik vind popmuziek mooi."],
+["Waarom gaat u naar school?","Por que você vai à escola?","waarom","Ik ga naar school, omdat ik …","Ik ga naar school, omdat ik Nederlands wil leren."],
+["Wat eet u meestal 's avonds?","O que você costuma comer à noite?","wat","'s Avonds eet ik meestal …","'s Avonds eet ik meestal rijst met kip."],
+["Welke drankjes kent u? Noem er drie.","Que bebidas você conhece? Cite três.","noem","Ik ken …, … en …","Ik ken koffie, thee en water."],
+["Hoeveel talen spreekt u?","Quantas línguas você fala?","hoeveel","Ik spreek … talen.","Ik spreek drie talen."],
+["Bij wie gaat u graag op bezoek?","Quem você gosta de visitar?","wie","Ik ga graag op bezoek bij …","Ik ga graag op bezoek bij mijn moeder."],
+["Waarom gaat u naar de bakker?","Por que você vai à padaria?","waarom","Ik ga naar de bakker, omdat ik …","Ik ga naar de bakker, omdat ik brood nodig heb."]
+];
+var VA=vaRaw.map(function(r,i){return{id:"va"+i,nl:r[0],pt:r[1],w:r[2],frame:r[3],m:r[4]}});
+
+/* [imagem, contexto, começo da frase, tipo, respostas que combinam, final-modelo, tradução, dica de gramática] */
+var aaRaw=[
+["🚪🔑","Joan doet de deur open.","Ze gaat","doen",["naar binnen","binnen","naar huis","thuis","naar haar huis","naar de keuken","koken","eten","slapen","rusten","binnenkomen"],"naar binnen","Joan abre a porta. Ela vai entrar.",""],
+["🛋️","Dit is mijn nieuwe bank.","Vind je mijn bank","bijv",["mooi","leuk","lekker","prettig","fijn","goed","comfortabel","rood","groot"],"mooi","Este é o meu sofá novo. Você acha o meu sofá bonito?",""],
+["👨‍💻","Rick heeft hard gewerkt vanmorgen.","Hij heeft zin in","ding",["koffie","een pauze","pauze","lunch","een kopje koffie","thee","eten","een broodje","vakantie","het weekend","water"],"koffie","Rick trabalhou duro de manhã. Ele está com vontade de tomar café.","«zin in» + coisa: koffie, een pauze, lunch."],
+["⌚","Ik moet op tijd komen.","Daarom ga ik vandaag met","vervoer",["de auto","de bus","de trein","de fiets","de metro","de taxi","de tram","de scooter","mijn auto"],"de trein","Preciso chegar na hora. Por isso hoje vou de trem.",""],
+["🛏️","Ik ga vroeg naar bed.","Slapen is","bijv",["gezond","fijn","lekker","goed","belangrijk","nodig","prettig","heerlijk"],"gezond","Vou cedo para a cama. Dormir é saudável.",""],
+["☀️🌸","De zon schijnt.","Jack gaat","doen",["wandelen","fietsen","naar buiten","naar het park","naar het strand","buiten spelen","zwemmen","een ijsje eten","hardlopen","joggen","buiten zitten"],"wandelen","O sol brilha. Jack vai passear.","Depois de «gaat», o verbo vai no infinitivo."],
+["🤔","Ik wil wat leuks doen.","Ga je mee naar","plaats",["de bioscoop","het park","het strand","de markt","het museum","de dierentuin","het café","een restaurant","de stad","het theater","het zwembad"],"de bioscoop","Quero fazer algo legal. Você vem ao cinema?",""],
+["😢","Luca moet huilen.","Ze heeft","gevoel",["verdriet","pijn","een probleem","heimwee","ruzie","last","een slechte dag","slecht nieuws","buikpijn"],"verdriet","Luca precisa chorar. Ela está triste.",""],
+["🎓","Hidde volgt al twee jaar een opleiding.","In juni krijgt hij zijn","ding",["diploma","certificaat"],"diploma","Hidde faz um curso há dois anos. Em junho ele recebe o diploma.",""],
+["🚲🌳","Op zondag fietsen wij naar buiten.","Onze favoriete plek is het","plaats",["park","bos","strand","meer","dorp","centrum"],"park","Aos domingos pedalamos para fora. Nosso lugar favorito é o parque.",""],
+["🎶💃","Carmen houdt van muziek met veel ritme.","In het weekend gaat ze graag","doen",["dansen","uit","feesten","naar een feest","naar een concert","naar de disco"],"dansen","Carmen gosta de música com muito ritmo. No fim de semana ela gosta de dançar.",""],
+["🎒🏙️","Mijn neef studeert in de hoofdstad.","Hij komt bijna nooit meer","plaats",["thuis","naar huis","hier","op bezoek","terug"],"thuis","Meu primo estuda na capital. Ele quase nunca vem mais para casa.",""],
+["🍞🏠","Mijn moeder maakt soms haar eigen brood.","Dan ruikt het huis naar vers","ding",["brood","gebakken brood"],"brood","Minha mãe às vezes faz o próprio pão. Aí a casa cheira a pão fresco.",""],
+["🥒🥬","Aïsha snijdt komkommer en sla voor het eten.","Ze maakt vanavond een verse","ding",["salade"],"salade","Aïsha corta pepino e alface. Hoje à noite ela faz uma salada fresca.",""],
+["🎂","Mijn moeder is jarig vandaag.","Ze wordt","getal",["#num"],"vijftig","Hoje é aniversário da minha mãe. Ela faz … anos. Diga um número, por exemplo vijftig (50).",""],
+["👶","Sana en haar man krijgen in november nieuws.","Sana verwacht een","ding",["baby","kind","kindje","zoon","dochter","tweeling"],"baby","Sana e o marido recebem uma notícia em novembro. Sana está esperando um bebê.",""],
+["🤒","Olivia hoest de hele week al.","Ze is best wel","bijv",["ziek","verkouden","moe"],"ziek","Olivia tosse a semana inteira. Ela está bem doente.",""],
+["🎬","De nieuwe film was echt geweldig.","Ik vond hem","bijv",["mooi","leuk","geweldig","fantastisch","goed","prachtig","super","spannend"],"mooi","O filme novo foi ótimo. Eu achei bonito.",""],
+["🏢","Wij wonen op de derde verdieping.","Wij nemen meestal de","ding",["lift","trap"],"lift","Moramos no terceiro andar. Geralmente pegamos o elevador.",""],
+["✏️🐶","Mijn dochter tekent graag dieren.","Haar tekeningen zijn","bijv",["mooi","leuk","prachtig","geweldig","goed","kleurrijk"],"mooi","Minha filha gosta de desenhar animais. Os desenhos dela são bonitos.",""],
+["⛱️☀️","De zon staat fel op het terras.","Renato zet snel een","ding",["parasol","zonnebril","pet","hoed","zonnehoed","zonnescherm"],"parasol","O sol está forte no terraço. Renato coloca rápido um guarda-sol.",""],
+["🍌","De banaan in de fruitschaal is bruin.","De banaan moet je","doen",["weggooien","opeten","eten","wegdoen"],"weggooien","A banana na fruteira está marrom. Você deve jogá-la fora.","«moet je» + verbo no infinitivo, no fim."],
+["💻","Ines moet voor haar studie veel teksten typen.","Ze werkt elke dag op haar","ding",["computer","laptop","pc","telefoon","tablet"],"laptop","Ines precisa digitar muitos textos. Ela trabalha todo dia no laptop.",""],
+["👖🛍️","Ik ga zaterdag kleren kopen in de stad.","Ik zoek een nieuwe","ding",["broek","jas","jurk","trui","rok","blouse","sjaal","jack"],"broek","Sábado vou comprar roupas na cidade. Procuro uma calça nova.","«een nieuwe» + palavra com DE (broek, jas). Palavra com HET usa «een nieuw» (een nieuw huis)."],
+["📚","Beatris leert elke week iets nieuws.","Ze ontdekt steeds nieuwe","ding",["woorden","dingen","boeken","plekken","mensen","recepten","liedjes","talen"],"woorden","Beatris aprende algo novo toda semana. Ela descobre sempre palavras novas.","«nieuwe» + plural: woorden, dingen."],
+["🚶‍♀️","Ik wandel elke ochtend een rondje.","Daarna voel ik me","bijv",["goed","fit","beter","sterk","vrolijk","blij","fijn","lekker","energiek","gezond"],"goed","Caminho uma volta toda manhã. Depois me sinto bem.",""],
+["💶","Joao werkt veel uren per week.","Hij verdient een goed","ding",["salaris","loon","inkomen","bedrag"],"salaris","Joao trabalha muitas horas por semana. Ele ganha um bom salário.","«een goed» + palavra com HET (salaris, loon)."],
+["🏖️👨‍👩‍👧","Pavel heeft twee weken vrij van zijn werk.","Hij gaat met zijn familie op","ding",["vakantie","reis","uitstapje","bezoek"],"vakantie","Pavel tem duas semanas de folga. Ele vai de férias com a família.","«op vakantie»: expressão fixa."],
+["🥛","Om vier uur komen de kinderen uit school.","Ze krijgen dan een glas","ding",["water","melk","sap","limonade","cola","appelsap"],"melk","Às quatro as crianças saem da escola. Aí ganham um copo de leite.",""],
+["🏠📦","Hugo wil graag verhuizen naar een grotere woning.","Hij zoekt een nieuw","ding",["huis","appartement","adres"],"huis","Hugo quer se mudar para uma moradia maior. Ele procura uma casa nova.","«een nieuw» + palavra com HET (huis, appartement)."],
+["🍋🥤","Pedro gooit veel suiker in de limonade.","De limonade wordt","bijv",["zoet","lekker","te zoet","heel zoet","plakkerig"],"zoet","Pedro põe muito açúcar na limonada. A limonada fica doce.",""],
+["💺😣","Suresh heeft de hele middag aan zijn bureau gewerkt.","Nu heeft hij pijn in zijn","ding",["rug","nek","schouders","hoofd","ogen","benen","handen","armen","hand","arm"],"rug","Suresh trabalhou a tarde toda na mesa. Agora ele sente dor nas costas.",""],
+["🧑‍💼","Vandaag krijgen wij een nieuwe collega.","Ik hoop dat hij","zin",["aardig is","leuk is","vriendelijk is","goed werkt","aardig","leuk","vriendelijk"],"aardig is","Hoje recebemos um colega novo. Espero que ele seja simpático.","Depois de «dat», o verbo vai para o fim: dat hij aardig IS."],
+["🥞","Op zondag bakken wij pannenkoeken.","De kinderen vinden dat","bijv",["lekker","leuk","gezellig","heerlijk","fijn","mooi"],"lekker","Aos domingos fazemos panquecas. As crianças acham gostoso.",""],
+["🍕👭","Aisha wil pizza eten met haar vriendinnen.","Zij gaan samen naar de","plaats",["pizzeria","restaurant","stad"],"pizzeria","Aisha quer comer pizza com as amigas. Elas vão juntas à pizzaria.",""],
+["✉️","Adi mist zijn vrienden in Marokko.","Hij schrijft hen een lange","ding",["brief","e-mail","email","mail","app","sms"],"brief","Adi sente falta dos amigos no Marrocos. Ele escreve uma carta longa.","«een lange» + palavra com DE (brief, e-mail)."],
+["🏪","Pieter werkt vandaag in zijn eentje in de zaak.","Hij moet vandaag heel veel","doen",["werken","doen","klanten helpen","verkopen","schoonmaken","bellen","typen"],"werken","Pieter trabalha sozinho na loja hoje. Ele precisa trabalhar muito.",""],
+["🍝🍽️","Lotte is klaar met koken.","Ze roept de","persoon",["kinderen","familie","gasten","man","vrienden","buren"],"kinderen","Lotte terminou de cozinhar. Ela chama as crianças.",""],
+["🏡🔑","Ana heeft een nieuwe woning gevonden.","Volgende maand gaat zij","doen",["verhuizen","naar haar nieuwe huis","verhuizen naar haar nieuwe huis","naar het nieuwe huis","de woning inrichten"],"verhuizen","Ana encontrou uma moradia nova. No mês que vem ela vai se mudar.",""],
+["🍎","Op de markt is het fruit goedkoop.","Ik koop daar elke week","ding",["fruit","appels","bananen","sinaasappels","groente","peren","druiven","aardbeien"],"fruit","Na feira a fruta é barata. Compro lá fruta toda semana.",""],
+["🏭","Carlos werkt in de fabriek aan de band.","Hij staat daar","tijd",["de hele dag","hele dag","acht uur","tien uur","elke dag","de hele middag","de hele week"],"de hele dag","Carlos trabalha na esteira da fábrica. Ele fica lá o dia todo.",""],
+["🍷🕕","We krijgen vanavond mensen op visite.","Om zes uur gaan wij gezellig samen","doen",["eten","koken","drinken","praten","dineren","borrelen","kletsen","spelen"],"eten","Hoje à noite recebemos visitas. Às seis jantamos juntos.","«gaan» + verbo no infinitivo, no fim."],
+["☔","Pak je paraplu maar mee.","Het gaat zo","doen",["regenen","hard regenen","sneeuwen","onweren","waaien"],"regenen","Leve o guarda-chuva. Daqui a pouco vai chover.","«Het gaat zo regenen»: gaan + infinitivo."],
+["🪵🔨","Eduardo bouwt graag dingen van hout.","Hij maakt zelf een nieuwe","ding",["tafel","kast","stoel","bank","deur","kist","kruk","plank","schuur"],"tafel","Eduardo gosta de construir coisas de madeira. Ele mesmo faz uma mesa nova.","«een nieuwe» + palavra com DE (tafel, kast)."],
+["☔","Het regent buiten.","Ik neem mijn","ding",["paraplu","jas","regenjas"],"paraplu mee","Está chovendo. Levo meu guarda-chuva.","«neem … mee»: o «mee» vai para o fim (verbo separável)."],
+["🍽️","Ik heb honger.","Ik wil graag","doen",["eten","brood","soep","een boterham","een broodje"],"eten","Estou com fome. Quero comer.",""],
+["🚉","De trein vertrekt om negen uur.","Wij staan op het","plaats",["perron","station"],"perron","O trem sai às nove. Estamos na plataforma.",""],
+["🧥❄️","Het is erg koud buiten.","Ik doe mijn","ding",["jas","trui","muts","sjaal","handschoenen"],"jas aan","Está muito frio lá fora. Visto meu casaco.","«doe … aan»: o «aan» vai para o fim (verbo separável)."],
+["🤧","Ik ben ziek.","Ik maak een afspraak bij de","persoon",["huisarts","dokter","arts"],"huisarts","Estou doente. Marco consulta com o médico de família.",""],
+["🥤","Hij heeft dorst.","Hij drinkt een glas","ding",["water","sap","melk","cola","limonade"],"water","Ele está com sede. Bebe um copo de água.",""]
+];
+var AA=aaRaw.map(function(r,i){return{id:"aa"+i,p:r[0],c:r[1],s:r[2],cat:r[3],a:r[4],m:r[5],pt:r[6],g:r[7]}});
+
+var VERBS=[
+["zijn","ser / estar","ben","bent","zijn","Ik ben moe."],
+["hebben","ter","heb","hebt / heeft","hebben","Ik heb dorst."],
+["wonen","morar","woon","woont","wonen","Ik woon in Utrecht."],
+["werken","trabalhar","werk","werkt","werken","Ik werk in een winkel."],
+["komen","vir","kom","komt","komen","Ik kom uit Brazilië."],
+["gaan","ir","ga","gaat","gaan","Ik ga naar de markt."],
+["eten","comer","eet","eet","eten","'s Ochtends eet ik brood."],
+["drinken","beber","drink","drinkt","drinken","Ik drink water."],
+["doen","fazer","doe","doet","doen","Wat doet u graag?"],
+["houden van","gostar de","hou","houdt","houden","Ik hou van muziek."],
+["vinden","achar","vind","vindt","vinden","Ik vind het leuk."],
+["willen","querer","wil","wilt","willen","Ik wil graag koffie."],
+["kunnen","poder","kan","kunt","kunnen","Ik kan niet komen."],
+["moeten","dever","moet","moet","moeten","Ik moet werken."],
+["krijgen","receber","krijg","krijgt","krijgen","Ik krijg een brief."]
+];
+
+/* ---------- itens do documento oficial de Spreken A1 (Ministerie van SZW, via Naar Nederland) ---------- */
+var OFV_RAW=[["Bij wie gaat u wonen in Nederland?", "Ik ga wonen bij mijn man."], ["Hoe bent u hier gekomen?", "Ik ben met het vliegtuig gekomen."], ["Hoe gaat het met u?", "Het gaat goed, dank u."], ["Hoe gaat u naar uw werk?", "Ik ga met de fiets naar mijn werk."], ["Hoe laat begint u met werken?", "Ik begin om acht uur met werken."], ["Hoe laat gaat u 's avonds naar bed?", "Ik ga om elf uur naar bed."], ["Hoe laat is het nu?", "Het is nu half drie."], ["Hoe laat stopt u met werken?", "Ik stop om vijf uur met werken."], ["Hoe laat wordt u 's ochtends wakker?", "Ik word om zeven uur wakker."], ["Hoe reist u meestal?", "Ik reis meestal met de trein."], ["Hoe vaak bent u al in Nederland geweest?", "Ik ben twee keer in Nederland geweest."], ["Hoe vaak eet u op een dag?", "Ik eet drie keer per dag."], ["Hoe vaak kijkt u tv?", "Ik kijk elke dag tv."], ["Hoe vaak luistert u naar de radio?", "Ik luister elke dag naar de radio."], ["Hoeveel broers en zussen hebt u?", "Ik heb twee broers en één zus."], ["Hoeveel dagen in de week werkt u?", "Ik werk vijf dagen in de week."], ["Hoeveel jaar school hebt u gehad?", "Ik heb tien jaar school gehad."], ["Hoeveel kinderen hebt u?", "Ik heb twee kinderen."], ["Hoeveel talen spreekt u?", "Ik spreek twee talen."], ["In wat voor huis gaat u wonen in Nederland?", "Ik ga wonen in een klein huis."], ["In welk land bent u geboren?", "Ik ben geboren in {land}."], ["In welke plaats gaat u wonen in Nederland?", "Ik ga wonen in {stad}."], ["Met hoeveel mensen werkt u?", "Ik werk met vijf mensen."], ["Naar welke muziek luistert u graag?", "Ik luister graag naar rustige muziek."], ["Op welke dagen werkt u?", "Ik werk op maandag, dinsdag en woensdag."], ["Van welke muziek houdt u?", "Ik houd van Braziliaanse muziek."], ["Waar bent u geboren?", "Ik ben geboren in een kleine stad."], ["Waar doet u boodschappen?", "Ik doe boodschappen in de supermarkt."], ["Waar heeft u Nederlands geleerd?", "Ik heb Nederlands geleerd op school."], ["Waar woont u?", "Ik woon in {stad}."], ["Waar woont uw familie?", "Mijn familie woont in {land}."], ["Waarom leert u Nederlands?", "Ik leer Nederlands, omdat ik in Nederland woon."], ["Waarom wilt u naar Nederland?", "Ik wil naar Nederland, omdat mijn man daar woont."], ["Wanneer bent u blij?", "Ik ben blij als de zon schijnt."], ["Wanneer bent u geboren?", "Ik ben geboren op tien mei."], ["Wanneer doet u boodschappen?", "Ik doe boodschappen op zaterdag."], ["Wanneer geeft u een feest?", "Ik geef een feest als ik jarig ben."], ["Wanneer wilt u naar Nederland gaan?", "Ik wil volgend jaar naar Nederland gaan."], ["Wat doet u graag buiten?", "Ik wandel graag buiten."], ["Wat doet u graag met uw familie?", "Ik ga graag wandelen met mijn familie."], ["Wat doet u graag met uw vrienden?", "Ik kook graag met mijn vrienden."], ["Wat doet u in het weekend?", "In het weekend ga ik wandelen."], ["Wat doet u in uw vrije tijd?", "In mijn vrije tijd lees ik een boek."], ["Wat doet u op een feestdag?", "Op een feestdag eet ik met mijn familie."], ["Wat drinkt u graag?", "Ik drink graag koffie."], ["Wat eet u op een feest?", "Op een feest eet ik taart."], ["Wat eet u 's avonds?", "'s Avonds eet ik rijst met kip."], ["Wat eet u 's ochtends?", "'s Ochtends eet ik brood met kaas."], ["Wat gaat u morgen doen?", "Morgen ga ik naar mijn werk."], ["Wat gaat u vandaag eten?", "Vandaag ga ik pasta eten."], ["Wat hebt u geleerd op school?", "Op school heb ik Nederlands geleerd."], ["Wat hebt u gisteren gedaan?", "Gisteren heb ik gewerkt."], ["Wat hebt u gisteren gegeten?", "Gisteren heb ik soep gegeten."], ["Wat is uw adres?", "Mijn adres is Kerkstraat twaalf."], ["Wat is uw telefoonnummer?", "Mijn telefoonnummer is nul zes, één twee drie vier vijf zes zeven."], ["Wat kookt u graag?", "Ik kook graag soep."], ["Wat vindt u van de Nederlandse taal?", "Ik vind de Nederlandse taal moeilijk, maar mooi."], ["Wat vindt u van Nederland?", "Ik vind Nederland mooi."], ["Wat vindt u van Nederlandse mensen?", "Ik vind Nederlandse mensen aardig."], ["Wat vindt u van uw huis?", "Ik vind mijn huis gezellig."], ["Wat voor kleren draagt u vaak?", "Ik draag vaak een jeans en een trui."], ["Wat voor kleren vindt u mooi?", "Ik vind een rode jurk mooi."], ["Wat voor weer is het vandaag?", "Het is vandaag zonnig."], ["Wat voor werk wilt u doen?", "Ik wil als {beroep} werken."], ["Wat wilt u graag leren in Nederland?", "Ik wil graag Nederlands leren."], ["Welk cadeau geeft u graag aan iemand?", "Ik geef graag bloemen aan iemand."], ["Welk eten koopt u vaak?", "Ik koop vaak brood en kaas."], ["Welk feest vindt u leuk?", "Ik vind Koningsdag leuk."], ["Welk fruit eet u graag?", "Ik eet graag appels."], ["Welke dag is het vandaag?", "Het is vandaag woensdag."], ["Welke dieren vindt u leuk?", "Ik vind honden en katten leuk."], ["Welke groente eet u vaak?", "Ik eet vaak wortels."], ["Welke kleur vindt u mooi?", "Ik vind blauw mooi."], ["Welke maand is het nu?", "Het is nu oktober."], ["Welke sport doet u?", "Ik doe aan zwemmen."], ["Welke talen spreekt u?", "Ik spreek Portugees en een beetje Engels."], ["Wie helpt u met Nederlands leren?", "Mijn man helpt mij met Nederlands leren."], ["Wie wonen bij u in huis?", "Mijn man en ik wonen samen."]];
+var OFA_RAW=[["'s Avonds doe ik mijn ring af. Ik leg mijn ring altijd", "in een doosje"], ["Aaliyah pakt eerst een kopje koffie. Daarna gaat ze", "naar haar werk"], ["Aaron gaat donderdag op reis. Hij vindt dat", "reizen leuk is"], ["Aaron is dokter. Hij werkt", "in een ziekenhuis"], ["Aaron is schilder. Hij schildert meestal", "huizen"], ["Abdul stuurt zijn familie elke week een e-mail. Hij schrijft dan over", "zijn werk"], ["Abel is op school. Hij heeft", "les"], ["Achmed is klaar met school. Hij gaat", "naar huis"], ["Adam is aan het koken. Hij maakt", "soep"], ["Ahmed brengt zijn zoon naar het vliegveld. Zijn zoon gaat", "naar huis"], ["Aiden is bij de bakker. Hij wil", "brood kopen"], ["Alec gaat naar school. Hij wil graag", "veel leren"], ["Alex gaat altijd met de trein. Ik ga graag met", "de trein"], ["Alex is ziek. Hij heeft pijn aan", "zijn buik"], ["Alex wil nieuwe schoenen. Hij gaat naar", "de schoenenwinkel"], ["Ali kan niet goed lopen. Hij heeft pijn aan zijn", "been"], ["Ali werkt in een fabriek. Hij wil", "een andere baan"], ["Alice werkt in een ziekenhuis. Zij is daar", "verpleegkundige"], ["Amel sport graag. Sporten is", "gezond"], ["Ana is niet blij met haar huis. Ze vindt haar huis", "te klein"], ["Ananda is aan het koken. Ze maakt", "soep"], ["Andres werkt op het land. Het werk is", "zwaar"], ["Anisa maakt huiswerk op de computer. Ze doet dat", "elke avond"], ["Anna is bij de dokter. Ze krijgt", "medicijnen"], ["Anna's huis is te klein. Ze wil snel", "verhuizen"], ["Anna wast de paprika. Ze gaat", "de paprika snijden"], ["Arif wacht op de bus. De bus komt", "over vijf minuten"], ["Arjun moet elke dag reizen naar zijn werk. Hij werkt in", "een ander dorp"], ["Arnold is schoonmaker. Hij werkt in", "een school"], ["Ayla eet haar ontbijt snel op. Ze heeft", "haast"], ["Aziz loopt elke dag. Hij loopt naar", "zijn werk"], ["Barry is geslaagd voor zijn examen. Hij krijgt", "een diploma"], ["Bart gaat bijna elke dag met de auto. Hij rijdt dan naar", "zijn werk"], ["Berat geeft les. Hij vertelt over", "de geschiedenis"], ["Bilal gaat naar de bioscoop. Hij gaat met zijn", "vrienden"], ["Bob houdt niet van zwemmen. Hij gaat liever", "wandelen"], ["Brenda doet een opleiding. Ze moet iedere avond", "huiswerk maken"], ["Brian fietst naar zijn werk. Hij gaat liever niet", "met de bus"], ["Cai werkt met hout. Hij maakt", "een tafel"], ["Carla drinkt een glas water. Ze doet dat", "langzaam"], ["Carlos gaat vroeg slapen. Hij is", "moe"], ["Carlos is vrij. Hij gaat", "naar het strand"], ["Carlos maakt muziek. Hij doet dat", "elke dag"], ["Carmen eet elke dag een banaan. Soms eet ze ook", "een appel"], ["Caro eet vaak appels. Zij houdt ook van", "peren"], ["Caro gaat vaak met de bus naar school. Soms gaat ze", "lopen"], ["Chen verkoopt bloemen. Ze doet dat", "op de markt"], ["Chris heeft een computer. Hij gebruikt de computer om te", "werken"], ["Chris neemt zijn pillen. Hij heeft pijn in zijn", "hoofd"], ["Christina belt met haar moeder. Ze praten over", "het weekend"], ["Christo heeft dorst. Hij drinkt een glas", "water"], ["Claire kijk uit het raam. Ze kijkt naar", "de straat"], ["Claire leert Nederlands. Ze vindt Nederlands", "moeilijk"], ["Dael heeft veel geld. Hij werkt", "hard"], ["Dafne kan goed zingen. Ze kan ook goed", "dansen"], ["Daniël heeft pijn aan zijn kies. Hij gaat naar", "de tandarts"], ["Daniëlle gaat studeren. Ze pakt haar", "boeken"], ["Dany heeft hoofdpijn. Ze wil", "slapen"], ["Dario zit op school. Hij maakt een", "toets"], ["Dave is niet blij met zijn haar. Zijn haar is", "te lang"], ["Dave lust geen koffie. Hij drinkt liever", "thee"], ["Dave werkt in een café. Hij moet daar", "koffie zetten"], ["David en Maria rijden naar de stad. Ze zoeken", "een huis"], ["David heeft een boot. Hij gebruikt de boot om te", "vissen"], ["David is dik. Hij eet elke dag", "te veel"], ["David werkt in een ziekenhuis. Hij is", "verpleger"], ["De auto van Leah is kapot. Ze brengt de auto naar", "de garage"], ["De baas van Patrick is boos. Patrick vindt dat", "zijn baas niet aardig is"], ["De broer van Souad heeft een baby gekregen. Souad is", "blij"], ["De bus is vaak te laat. Paul vindt dat", "niet fijn is"], ["De bus rijdt langzaam. Lia wil", "uitstappen"], ["De dochter van Sophia kijkt veel tv. Ze kan beter gaan", "buiten spelen"], ["De dokter praat met Sofia. De dokter geeft Sofia", "medicijnen"], ["De familie Wang woont in een leuke straat. Zij wonen naast", "het park"], ["De kinderen lezen samen. In het boek staat", "een mooi verhaal"], ["De klas is leeg. Iedereen is", "weg"], ["De koning is op het nieuws. Hij vertelt over", "het weer"], ["De les begint om 11 uur. Hetty gaat", "naar school"], ["De les is afgelopen. We willen nu", "naar huis"], ["De man belt in de auto. Dat is", "gevaarlijk"], ["De stoel is kapot. Jaimy gaat de stoel", "repareren"], ["De trein is vol. Hanna moet", "staan"], ["De zoon van Samira gaat naar school. Samira vindt dat", "school belangrijk is"], ["Debra zit op school. Ze maakt veel", "fouten"], ["Die sinaasappel is oud. Je moet de sinaasappel", "weggooien"], ["Diego houdt van koken. Hij kookt graag voor", "zijn familie"], ["Dimitri werkt in een garage. Hij maakt", "auto's"], ["Dina wast haar handen. Haar handen zijn", "schoon"], ["Dunya gaat naar een feest. Het feest is van haar", "vriendin"], ["Dylan is bij de tandarts. Dat is", "niet leuk"], ["Edgar en Joko koken samen. Ze doen dat", "graag"], ["Een mug heeft mij geprikt. Nu krijg ik", "jeuk"], ["Eliza is morgen jarig. Haar vader", "koopt een taart"], ["Ella bakt koekjes. Ze bakt de koekjes voor", "haar kinderen"], ["Emma doet een opleiding. Dat is", "moeilijk"], ["Emma schrijft alles op. Daarna gaat ze", "koffie drinken"], ["Emma wast haar handen. Ze gaat", "eten"], ["Er is ingebroken bij Ben. Hij belt naar", "de politie"], ["Er komen nieuwe huizen in onze buurt. Ik vind dat", "dat leuk is"], ["Er ligt rommel op straat. Dat is", "vies"], ["Esma wil lerares worden. Zij gaat", "studeren"], ["Esra is ziek. Ze vindt dat", "ze naar de dokter moet"], ["Fanya is op de markt. Ze zoekt", "groente"], ["Farid is zanger. Hij moet vandaag", "zingen"], ["Fatima koopt een fiets. Ze gaat met de fiets naar", "haar werk"], ["Fausia stapt uit de boot. Ze loopt naar", "het strand"], ["Felipe houdt van lezen. Hij koopt elke maand", "een boek"], ["Felix gaat elke dag zwemmen. Soms gaat hij ook", "fietsen"], ["Fico woont ver van zijn werk. Hij moet elke dag", "reizen"], ["Filip maakt de badkamer schoon. Hij vindt dat", "het vies is"], ["Filiz koopt een nieuwe jas. Ze koopt ook", "een broek"], ["Finn kijkt nu televisie. Hij gaat straks", "eten"], ["Franco gaat verhuizen. Zijn nieuwe huis heeft een", "tuin"], ["Frank leest de krant. Hij leest over", "het nieuws"], ["Fred gaat naar school. Hij heeft les tot", "vier uur"], ["Gabriel maakt een opdracht. Hij doet dat", "snel"], ["Gary leest zijn dochter voor. Lezen is", "gezellig"], ["Gary woont bij het strand. Hij wil het liefst", "zwemmen"], ["Gina kijkt vaak televisie. Ze houdt van programma's over", "dieren"], ["Grace houdt niet van groente. Ze vindt dat", "groente niet lekker is"], ["Halil rijdt in een vrachtwagen. Hij vindt dat", "het werk leuk is"], ["Han heeft zijn diploma gehaald. Hij gaat nu", "werken"], ["Hannah eet graag vis. Ze haalt die vis", "op de markt"], ["Hannah leert Nederlands. Ze leert ook", "schrijven"], ["Hannah maakt haar huis schoon. Ze doet dat", "elke week"], ["Harold is niet alleen. Hij heeft", "vrienden"], ["Harry is gevallen. Hij heeft", "pijn"], ["Hassan maakt zijn brommer. Het wiel is", "kapot"], ["Hassan werkt in een restaurant. Hij leert daar", "koken"], ["Het bord van Sahid is gevallen. Sahid is", "boos"], ["Het eten is heel warm! Je moet", "wachten"], ["Het fruit is op. Ik ga nu naar", "de winkel"], ["Het huis van Tania is heel groot. Haar huis heeft", "een tuin"], ["Het is donker. Ik reis dan liever niet met", "de fiets"], ["Het is druk in de stad. Er zijn veel", "mensen"], ["Het is druk op de weg. Emir vindt dat", "iedereen te hard rijdt"], ["Het is druk op het station. Er zijn veel", "reizigers"], ["Het is koud in het huis van Faiz. Hij wil", "de verwarming aanzetten"], ["Het is slecht weer. Gaan we met de", "auto"], ["Het is stil in de klas. De leerlingen", "luisteren"], ["Het is warm vandaag. Ana wil", "ijs eten"], ["Het is zondag. Eva gaat op zondag altijd naar", "de kerk"], ["Het regent al de hele dag. William wil", "thuisblijven"], ["Het regent onderweg. Marta wil", "een paraplu kopen"], ["Het vliegveld is ver weg. We gaan naar het vliegveld met", "de taxi"], ["Hetty is klaar met koken. Ze roept", "de kinderen"], ["Hiba houdt van katten. Ze houdt niet van", "honden"], ["Hue wil naar de markt. Ze gaat", "fruit kopen"], ["Ibrahim heeft een kar met spullen. Hij brengt de spullen", "naar huis"], ["Iedereen is blij. Het is", "feest"], ["Ik ben op zoek naar het treinstation. Kunt u mij", "helpen"], ["Ik ben ziek. Ik ga morgen niet", "naar mijn werk"], ["Ik drink geen alcohol. Ik drink wel graag", "water"], ["Ik eet graag brood. Ik houd niet van", "rijst"], ["Ik eet nooit druiven. Ik vind druiven", "niet lekker"], ["Ik eet nooit kip. Dat vind ik", "vies"], ["Ik ga een taart maken. Wil jij", "mij helpen"], ["Ik ga morgen brood kopen. Brood koop ik meestal", "bij de bakker"], ["Ik ga naar de huisarts. Hij geeft mij", "medicijnen"], ["Ik ga naar mijn zus. Mijn zus woont", "ver weg"], ["Ik ga straks naar Hamza. Hij is", "ziek"], ["Ik ga vaak met de bus. Ik ga dan naar", "school"], ["Ik heb deze krant gelezen. Wil jij de krant nu", "lezen"], ["Ik heb een computer met internet. Die gebruik ik", "elke dag"], ["Ik heb een nieuwe tafel gekocht. Wil jij mijn oude tafel", "hebben"], ["Ik heb geen auto. Een auto is", "duur"], ["Ik heb soep gemaakt. Wil jij mijn soep", "proeven"], ["Ik heb wortels gekocht. Ik koop de wortels voor", "soep"], ["Ik houd van tekenen. Ik teken", "een huis"], ["Ik lees het nieuws op mijn telefoon. Mijn man leest het nieuws", "in de krant"], ["Ik lees vaak. Ik lees graag", "boeken"], ["Ik wil zieke mensen helpen. Ik vind dat", "dat een mooi beroep is"], ["Imani vindt school leuk. Zij houdt van", "lezen"], ["In de stad rijden veel brommers. Ik vind dat", "het te druk is"], ["In een grote stad wonen veel mensen. Ik vind dat", "het druk is"], ["In het eten zitten pepers. Ik vind dat", "het te scherp is"], ["Inez en Luis bouwen een huis. Het huis heeft nog geen", "dak"], ["Inez gaat naar een concert. Ze gaat", "met haar vriendin"], ["Is dat boek leuk? Ik wil het boek ook graag", "lezen"], ["Isa heeft pauze. Ze belt met haar", "moeder"], ["Isabel speelt graag met haar pop. Soms speelt ze ook met", "haar broertje"], ["Ismet heeft groenten in zijn tuin. Hij gaat de groenten", "koken"], ["Ivan is niet blij met zijn werk. Hij vindt zijn werk te", "zwaar"], ["Iwan wil gezond zijn. Hij drinkt geen", "suiker"], ["Jack koopt tomaten. Hij koopt ook", "uien"], ["Jack wil de muziek niet horen. Hij vindt de muziek", "te hard"], ["Jacques is leraar. Hij geeft", "les"], ["Jada maakt pannenkoeken voor haar familie. Zij doet dat", "elke zondag"], ["Jafar houdt niet van dansen. Hij vindt dansen", "saai"], ["Jakob zoekt een taxi. Hij wil", "naar het station"], ["Jamal heeft een nieuwe scooter. Hij kan nu", "sneller rijden"], ["Jamal woont in een flatgebouw. Hij wil graag", "verhuizen"], ["Jamila maakt kleding. Die kleding is voor", "kinderen"], ["Jan heeft zijn arm gebroken. Hij moet nu", "naar het ziekenhuis"], ["Janek heeft koorts. Zijn moeder geeft hem", "medicijnen"], ["Janine leert Nederlands. Ze praat met de lerares over", "haar huiswerk"], ["Jara is zwanger. Ze krijgt", "een baby"], ["Jasmine gaat naar het ziekenhuis. In het ziekenhuis zijn", "veel dokters"], ["Jason gaat graag naar school. Hij kan goed", "rekenen"], ["Jessie houdt van muziek. Ze speelt graag", "gitaar"], ["Jessie moet langer werken vandaag. Ze mag pas om acht uur", "naar huis"], ["Jessy koopt een kaartje. Ze gaat", "met de trein"], ["Jie is op de markt. Hij ziet", "groente"], ["Jim gaat naar het strand. Het is daar", "mooi"], ["Jim heeft haast. Hij moet snel naar", "huis"], ["Jim staat voor de school. Hij wacht op", "zijn vrienden"], ["Jing maakt de borden schoon. Daarna gaat ze", "afdrogen"], ["Joel heeft een vieze keuken. Hij moet", "schoonmaken"], ["Johan heeft veel boeken. Hij houdt van", "lezen"], ["Johanna doet suiker in haar koffie. Suiker is", "zoet"], ["John en zijn dochter bakken samen taart. Ze vinden dat", "dat taart lekker is"], ["John houdt van paarden. Hij vindt paarden", "mooi"], ["John woont bij een bos. Hij gaat daar elk weekend", "wandelen"], ["Johnny is moe. Hij wil", "slapen"], ["Johnny is vrij op zaterdag. Hij gaat", "naar het strand"], ["Jonas werkt altijd buiten. Dat is", "zwaar"], ["Josh heeft de hele dag gelopen. Hij wil nu", "rusten"], ["Josh koopt een krant in de winkel. Hij koopt ook", "een tijdschrift"], ["Judy leest een tijdschrift. Soms leest ze ook", "een boek"], ["Julio gaat verhuizen. Hij moet", "inpakken"], ["Karim heeft pijn in zijn rug. Hij moet", "rusten"], ["Karim leest het weerbericht. Het weer wordt", "beter"], ["Karima gaat naar de dokter. Ze voelt zich", "ziek"], ["Karin kijkt naar het journaal. Ze doet dat", "elke avond"], ["Karl gaat met zijn dochter naar de dierentuin. Ze kijken naar", "de dieren"], ["Katya volgt een opleiding. Ze wil", "leraar worden"], ["Kay zoekt een nieuw huis. Hij vindt zijn oude huis", "te klein"], ["Kei eet 's avonds met zijn familie. Dat vindt hij", "gezellig"], ["Kenji rookt al twintig jaar sigaretten. Dat is", "slecht"], ["Kenny zoekt op internet. Hij zoekt naar", "een baan"], ["Kevin eet een salade met paprika. In de salade zit ook", "sla"], ["Kevin heeft huiswerk. Hij moet veel", "oefenen"], ["Kevin werkt in een restaurant. Hij maakt vandaag", "soep"], ["Kevin zit in de klas. Hij heeft een vraag over", "grammatica"], ["Khalid is visser. Na het werk is hij vaak", "moe"], ["Kris werkt in de tuin. Hij doet dat", "op zaterdag"], ["Kun je mij een lepel geven? Ik wil", "eten"], ["Kun je mij naar het station brengen. Ik moet op tijd", "op het station zijn"], ["Kwasi is chauffeur. Hij rijdt", "een bus"], ["Laila moet elke dag vroeg opstaan. Soms is ze", "moe"], ["Laiqa werkt elke dag buiten. Ze houdt van", "de natuur"], ["Laura heeft veel collega's. Ze gaan samen", "lunchen"], ["Lea eet graag in een restaurant. Ze vindt dat", "het er gezellig is"], ["Lea gaat naar haar kleinzoon. Ze geeft hem", "een cadeau"], ["Lea is in het ziekenhuis. Ze wil", "naar huis"], ["Lei speelt op straat. Dat is", "gevaarlijk"], ["Leon is verkouden. Hij moet", "thuisblijven"], ["Leon speelt gitaar. Hij doet dat", "goed"], ["Leyla slaapt samen met haar zus in een kamer. Zij vinden dat", "het fijn is"], ["Li en Chen gaan iets drinken. Ze drinken", "koffie"], ["Lia wil meer geld voor haar werk. Dan kan ze", "sparen"], ["Liam kan niet goed zien. Hij moet", "naar de opticien"], ["Lily gaat elke dinsdag sporten. Ze eet daarna altijd", "fruit"], ["Lin zoekt werk. Ze gaat naar", "een uitzendbureau"], ["Ling wil iets eten. Ze eet liever geen", "vlees"], ["Linn heeft niet goed geslapen. Ze blijft", "moe"], ["Liyen gaat vanavond koken. Ze gaat eerst", "de groente wassen"], ["Lizzie en haar moeder gaan met het vliegtuig. Lizzie vindt dat", "vliegen leuk is"], ["Loes is ziek. Zij gaat vandaag", "thuisblijven"], ["Louis gaat op de scooter naar zijn werk. Hij doet dat", "elke dag"], ["Louis gebruikt de computer. Hij wil", "een mail sturen"], ["Lucia heeft haar been gebroken. Nu kan ze niet", "lopen"], ["Lucia wil nieuw werk. Ze vindt haar oude werk", "saai"], ["Madee heeft een auto. Ze gaat met de auto naar", "haar werk"], ["Mae heeft een nieuwe auto. Ze kan nu", "sneller rijden"], ["Mag ik jouw brommer lenen? Mijn brommer is", "kapot"], ["Mai kijkt niet naar het nieuws. Ze vindt het nieuws", "saai"], ["Maja maakt soep. De soep is", "lekker"], ["Malik gaat vandaag niet sporten. Hij heeft geen", "tijd"], ["Malik heeft een nieuwe bank gekocht. De oude bank was", "oud"], ["Mandy eet vaak chips als ze een film kijkt. Ze eet soms ook", "popcorn"], ["Manuel is buschauffeur. Hij rijdt", "de bus"], ["Marco heeft zin in koffie. Hij wil ook", "een koekje"], ["Marco is ziek. Hij belt", "de dokter"], ["Maria heeft griep. Ze moet", "rusten"], ["Maria kan goed koken. Ze kookt meestal", "pasta"], ["Maria leest een boek. Ze vindt het", "mooi"], ["Maria leest op zondag de krant. Ze leest soms", "een tijdschrift"], ["Mariam praat met de leraar. Mariam praat ook met haar", "klasgenoten"], ["Martin eet elke ochtend een ei. Zijn vrouw eet meestal", "een boterham"], ["Martin stelt een vraag aan de docent. De vraag gaat over", "grammatica"], ["Maryam kookt voor Dina. Maryam maakt", "pasta"], ["Masha kan vandaag zitten in de bus. Soms moet ze", "staan"], ["Max draagt een helm op zijn werk. Dat moet van zijn", "baas"], ["Max voetbalt graag. Voetballen is", "leuk"], ["Maya doet de gordijnen dicht. Ze gaat", "slapen"], ["Megan gaat vandaag verhuizen. Ze woont straks", "in een nieuw huis"], ["Melissa wacht op het station. Ze wacht op haar", "vriend"], ["Mevrouw Perez heeft geen auto meer. Nu moet ze", "met de bus"], ["Mia maakt zelf kleren. Vandaag maakt ze een", "jurk"], ["Mia moet snel naar huis. Ze gaat met de", "fiets"], ["Michael houdt niet van tennis. Hij houdt meer van", "voetbal"], ["Michelle kijkt vaak films. Ze houdt van films over", "liefde"], ["Michelle maakt huiswerk. Ze vindt het huiswerk", "moeilijk"], ["Miguel stopt met werken. Hij is", "moe"], ["Mijn auto is kapot. Nu moet ik", "lopen"], ["Mijn baas fietst elke dag. Ik doe dat", "ook"], ["Mijn benzine is op. Nu moet ik", "tanken"], ["Mijn broer houdt niet van varen. Hij wordt altijd ziek op", "de boot"], ["Mijn broer zingt veel. Hij is", "zanger"], ["Mijn buurman maakt graag muziek. Dat vind ik", "mooi"], ["Mijn opa gaat elke dag wandelen. Dat is", "gezond"], ["Mijn opa zit op de bank. Hij kijkt naar", "de televisie"], ["Mijn telefoon is kapot. Nu kan ik niet", "bellen"], ["Mijn trein vertrekt over een half uur. Ik ga nu", "naar het station"], ["Mijn vader heeft een paard. Hij gaat", "paardrijden"], ["Mijn vader loopt met een stok. Mijn vader is", "oud"], ["Mijn vader luistert graag naar het nieuws. Hij luistert ook naar", "de radio"], ["Mijn zus rijdt altijd hard. Ik vind dat", "ze te hard rijdt"], ["Mike heeft pijn aan zijn been. Hij heeft ook pijn aan zijn", "zijn voet"], ["Mina werkt bij de supermarkt. Ze werkt daar", "elke dag"], ["Ming rijdt vaak op zijn scooter. Hij wil niet", "te hard rijden"], ["Mira heeft zin in koffie. Ze drinkt koffie met", "melk"], ["Mo en zijn familie spelen een spel. Daarna gaan ze", "eten"], ["Mo zit aan tafel. Hij schrijft een brief aan zijn", "vriend"], ["Mohammed maakt auto's. Dat vindt hij", "leuk"], ["Monica maakt graag foto's. Ze maakt het liefst foto's van", "de natuur"], ["Monica wil graag een huis met een tuin. Ze vindt dat", "een tuin fijn is"], ["Myra en Liz gaan naar een café. Ze willen graag", "koffie drinken"], ["Nadia heeft kip gekocht. Ze gaat de kip eerst", "wassen"], ["Naima wil kapper worden. Ze leert", "knippen"], ["Nancy en Oscar zitten in de bioscoop. Ze vinden de film", "mooi"], ["Nasir zoekt een nieuw huis. Hij wil een huis met", "een tuin"], ["Nasira woont bij de supermarkt. Ze woont ook bij", "het station"], ["Nick wil naar zijn familie. Hij reist met", "de trein"], ["Nick zoekt werk. Hij wil graag werken bij", "een bakkerij"], ["Nicole gaat naar de tandarts. Ze heeft pijn aan haar", "tand"], ["Nikki zoekt een nieuw huis. Ze wil graag", "verhuizen"], ["Nina speelt in de tuin. Ze speelt met", "haar poppen"], ["Noah leest een bericht in de krant. Het bericht gaat over", "het weer"], ["Noor werkt in een winkel. Ze verkoopt broeken en ook", "jassen"], ["Nora en Souffian wonen in een dorp. Ze wonen liever", "in het dorp"], ["Odara ruimt het huis op. Ze legt de kleren", "in de kast"], ["Olga is ziek. Ze moet", "rusten"], ["Omar koopt vis. Hij koopt ook", "rijst"], ["Omid leest 's ochtends altijd eerst de krant. Daarna gaat hij", "werken"], ["Ons dak is kapot. Wij moeten", "het dak maken"], ["Orma heeft leuke buren. Ze gaat met haar buren", "praten"], ["Pablo gaat vaak met de trein. Hij gaat dan naar", "zijn werk"], ["Pablo speelt gitaar. Hij oefent", "elke dag"], ["Pari gaat elke dag met de bus. Vandaag gaat ze", "met de fiets"], ["Pascal vindt zijn werk moeilijk. Hij wil", "een andere baan"], ["Paul gaat vroeg naar bed. Hij moet morgen", "vroeg opstaan"], ["Paul heeft honger. Zijn moeder geeft hem", "een boterham"], ["Paul viert zijn verjaardag. Hij is", "jarig"], ["Paula heeft een brief gekregen. De brief is van", "de gemeente"], ["Pedro doet de lamp aan. Het is", "donker"], ["Pedro woont op een boerderij. Hij heeft daar", "koeien"], ["Peter maakt machines. Hij werkt vaak", "met zijn handen"], ["Peter speelt met zijn zoon. Ze zijn", "in het park"], ["Philip fietst op de weg. De weg is", "nat"], ["Philippa zit in de tuin. Ze zit ook vaak", "in de zon"], ["Pia woont naast een park. Ze gaat daar", "wandelen"], ["Priya doet een opleiding. Later wordt ze", "lerares"], ["Priya maakt saus. Haar dochters willen", "pasta"], ["Quito eet vandaag niet thuis. Hij eet", "bij zijn vriend"], ["Rachel zingt vaak alleen. Soms zingt ze ook", "in het koor"], ["Rafael heeft een telefoon. Hij belt elke dag met zijn", "moeder"], ["Raheem heeft een fijn huis. Hij woont daar met", "zijn gezin"], ["Rahime heeft Nederlandse les. Ze vindt haar docent", "aardig"], ["Rasha werkt op een kantoor. Het kantoor is", "groot"], ["Remi werkt op de markt. Hij verkoopt", "groente"], ["Rhonda is haar sleutel kwijt. Nu moet ze", "een nieuwe sleutel kopen"], ["Rico eet vaak snoep. Snoep is slecht voor", "je tanden"], ["Rico krijgt een prik. Hij is", "bang"], ["Rima en haar dochter zijn in de keuken. Haar dochter wil", "helpen"], ["Robin loopt snel naar school. Hij is", "te laat"], ["Romeo werkt op een school. Hij geeft les aan", "kinderen"], ["Roy wil zijn vriend spreken. Hij gaat", "naar hem toe"], ["Ryan heeft weinig geld. Hij werkt", "hard"], ["Ryan wil een film zien. Hij gaat naar", "de bioscoop"], ["Sabir heeft een nieuwe baan. Hij werkt bij", "een winkel"], ["Saïd heeft vakantie. Hij gaat", "naar Spanje"], ["Saïd is te laat op zijn werk. Zijn baas is", "boos"], ["Salih is bakker. Hij werkt meestal", "'s ochtends"], ["Salim snijdt de uien. Zijn vrouw gaat", "de uien bakken"], ["Sam is vandaag op school. Hij gaat straks naar", "huis"], ["Sam loopt het lokaal uit. Hij gaat", "naar huis"], ["Samir is te laat voor de trein. Hij moet nu", "rennen"], ["Samira heeft een gesprek met haar baas. Ze praten over", "het werk"], ["Samira gaat naar haar ouders. Ze gaan samen", "eten"], ["Samira heeft pijn aan haar rug. Ze kan niet goed", "lopen"], ["Samuel heeft vandaag les. Hij gaat morgen", "weer"], ["Samuel praat met zijn baas. Hij vraagt", "om vrij"], ["Samuel vindt de pauze leuk. Hij gaat dan", "praten"], ["Sandra moet vandaag veel doen. Ze moet", "werken"], ["Sanne kan niet goed koken. Het eten is", "koud"], ["Sara lacht. Zij is", "blij"], ["Sara praat met haar buurvrouw. Ze praten over", "het weer"], ["Sarah is nooit ziek. Zij voelt zich altijd", "gezond"], ["Sari zoekt een cursusboek. Ze gaat naar", "de boekwinkel"], ["Sarina reist met de bus. Zij gaat naar", "school"], ["Sasha eet niet altijd thuis. Ze gaat vaak naar", "het restaurant"], ["Sasha gaat naar de bioscoop. Ze kijkt", "een film"], ["Sasha heeft een hond. Ze heeft ook", "een kat"], ["Savita gaat solliciteren. Ze wil", "werken"], ["Scott doet een opleiding. Hij vindt leren", "leuk"], ["Selim kan zijn broer niet bellen. Hij stuurt zijn broer een", "appje"], ["Shaila draagt een rugzak naar school. In de rugzak zit", "een boek"], ["Shanna heeft haar diploma. Ze is", "blij"], ["Shing heeft zijn arm gebroken. Hij mag niet", "sporten"], ["Shun wil niet eten. Hij wil liever", "koffie"], ["Siham volgt een cursus. Ze leert", "koken"], ["Simon bouwt een huis. Het huis wordt", "mooi"], ["Simon wil leraar worden. Hij moet veel", "leren"], ["Simone leest graag een krant. Ze koopt hem", "elke dag"], ["Sita bakt een taart. Haar kinderen vinden", "taart lekker"], ["Sita geeft taart aan haar opa. Hij vindt dat", "dat de taart lekker is"], ["Sjaak werkt in een fabriek. Daar werkt hij", "elke dag"], ["Sonia zit in de bus. Ze gaat naar", "haar werk"], ["Sonya houdt van muziek. Ze luistert", "naar de radio"], ["Sophia houdt van rijst. Ze kookt dat", "elke dag"], ["Sophie is vaak in het bos. Ze kijkt graag naar", "de vogels"], ["Sou eet graag maïs. Ze eet maïs meestal met", "zout"], ["Souad koopt bananen op de markt. Ze koopt ook", "appels"], ["Stanley wil een groter huis. Hij wil ook", "een tuin"], ["Stefan belt met zijn zus. Zijn zus is", "ziek"], ["Stefana vindt wandelen leuk. Ze doet dat", "elke dag"], ["Stephan moet sporten van de dokter. Hij gaat", "sporten"], ["Steven is in het ziekenhuis. Hij gaat morgen", "naar huis"], ["Sven komt uit het ziekenhuis. Hij is", "beter"], ["Sylvia is kapper. Ze moet vandaag veel", "knippen"], ["Tamal moet remmen. Hij ziet een", "stoplicht"], ["Tanya is bakker. Ze verkoopt", "brood"], ["Tara wil een motor kopen. Een motor is", "duur"], ["Tara zoekt werk. Ze kijkt in", "de krant"], ["Tariq eet alleen. Hij vindt dat", "het saai is"], ["Tess eet veel fruit. Fruit is", "gezond"], ["Thirza wil later in het ziekenhuis werken. Ze moet eerst", "studeren"], ["Thomas ligt in het ziekenhuis. Hij vindt dat", "het eten niet lekker is"], ["Tim drinkt graag koffie. Hij drinkt liever koffie dan", "thee"], ["Tim is jarig. Zijn zus geeft hem een", "cadeau"], ["Tirza koopt een nieuw bed. Ze koopt ook", "een kast"], ["Tony eet brood. Hij eet het brood met", "kaas"], ["Tuan zit op school. Hij heeft volgende week", "een toets"], ["Veel mensen praten in de les. Nena vindt dat", "het te druk is"], ["Vera doet suiker in haar thee. Haar thee wordt zo", "zoet"], ["Victor heeft een nieuw huis. Hij gaat morgen", "verhuizen"], ["Wayan drinkt koffie met zijn buurman. Hij vindt dat", "het gezellig is"], ["We gaan mijn broer ophalen. Hij heeft geen", "auto"], ["Wij willen wat leuks doen. We gaan", "naar het park"], ["Wil je mijn huis zien? Ik woon hier", "graag"], ["Wil jij op mijn kinderen passen? Ik ga vanavond", "uit"], ["William neemt een drankje. Dat helpt tegen", "hoofdpijn"], ["Xuan is in de supermarkt. Ze wil", "boodschappen doen"], ["Yaira werkt bij een apotheek. Ze werkt daar", "elke dag"], ["Younes heeft veel vrienden. Hij gaat vaak met ze naar", "het café"], ["Yun eet 's ochtends niet veel. Ze eet dan alleen", "fruit"], ["Yvonne doet haar spullen in dozen. Zij gaat morgen", "verhuizen"], ["Zarina moet de vis eerst schoonmaken. Daarna gaat ze hem", "bakken"], ["Zina kookt met veel kruiden. Zo wordt haar eten", "lekker"]];
+var OFA_TR=[["À noite eu tiro meu anel. Sempre guardo o anel", "numa caixinha"], ["Aaliyah primeiro pega uma xícara de café. Depois ela vai", "para o trabalho"], ["Aaron vai viajar na quinta. Ele acha que", "viajar é legal"], ["Aaron é médico. Ele trabalha", "num hospital"], ["Aaron é pintor. Ele geralmente pinta", "casas"], ["Abdul manda um e-mail para a família toda semana. Ele escreve então sobre", "o trabalho dele"], ["Abel está na escola. Ele tem", "aula"], ["Achmed terminou a escola. Ele vai", "para casa"], ["Adam está cozinhando. Ele faz", "sopa"], ["Ahmed leva o filho ao aeroporto. O filho vai", "para casa"], ["Aiden está na padaria. Ele quer", "comprar pão"], ["Alec vai à escola. Ele quer muito", "aprender muito"], ["Alex sempre vai de trem. Eu gosto de ir de", "trem"], ["Alex está doente. Ele sente dor", "na barriga"], ["Alex quer sapatos novos. Ele vai à", "loja de sapatos"], ["Ali não consegue andar bem. Ele sente dor na", "perna"], ["Ali trabalha numa fábrica. Ele quer", "outro emprego"], ["Alice trabalha num hospital. Ela é lá", "enfermeira"], ["Amel gosta de fazer esporte. Fazer esporte é", "saudável"], ["Ana não está feliz com a casa dela. Ela acha a casa", "pequena demais"], ["Ananda está cozinhando. Ela faz", "sopa"], ["Andres trabalha no campo. O trabalho é", "pesado"], ["Anisa faz o dever de casa no computador. Ela faz isso", "toda noite"], ["Anna está no médico. Ela recebe", "remédios"], ["A casa da Anna é pequena demais. Ela quer logo", "se mudar"], ["Anna lava o pimentão. Ela vai", "cortar o pimentão"], ["Arif espera o ônibus. O ônibus chega", "em cinco minutos"], ["Arjun precisa viajar todo dia para o trabalho. Ele trabalha em", "outra aldeia"], ["Arnold é faxineiro. Ele trabalha numa", "escola"], ["Ayla toma o café da manhã rápido. Ela está com", "pressa"], ["Aziz anda todo dia. Ele anda até", "o trabalho"], ["Barry passou na prova. Ele recebe", "um diploma"], ["Bart vai quase todo dia de carro. Ele dirige então até", "o trabalho"], ["Berat dá aula. Ele fala sobre", "a história"], ["Bilal vai ao cinema. Ele vai com os", "amigos"], ["Bob não gosta de nadar. Ele prefere", "caminhar"], ["Brenda faz um curso. Ela precisa toda noite", "fazer o dever de casa"], ["Brian vai de bicicleta para o trabalho. Ele prefere não ir", "de ônibus"], ["Cai trabalha com madeira. Ele faz", "uma mesa"], ["Carla bebe um copo de água. Ela faz isso", "devagar"], ["Carlos vai dormir cedo. Ele está", "cansado"], ["Carlos está de folga. Ele vai", "à praia"], ["Carlos faz música. Ele faz isso", "todo dia"], ["Carmen come uma banana todo dia. Às vezes ela também come", "uma maçã"], ["Caro come maçãs com frequência. Ela também gosta de", "peras"], ["Caro costuma ir de ônibus para a escola. Às vezes ela vai", "a pé"], ["Chen vende flores. Ela faz isso", "no mercado"], ["Chris tem um computador. Ele usa o computador para", "trabalhar"], ["Chris toma os comprimidos. Ele sente dor", "na cabeça"], ["Christina fala ao telefone com a mãe. Elas conversam sobre", "o fim de semana"], ["Christo está com sede. Ele bebe um copo de", "água"], ["Claire olha pela janela. Ela olha para", "a rua"], ["Claire aprende holandês. Ela acha o holandês", "difícil"], ["Dael tem muito dinheiro. Ele trabalha", "muito"], ["Dafne sabe cantar bem. Ela também sabe", "dançar bem"], ["Daniël está com dor no dente. Ele vai ao", "dentista"], ["Daniëlle vai estudar. Ela pega os", "livros"], ["Dany está com dor de cabeça. Ela quer", "dormir"], ["Dario está na escola. Ele faz uma", "prova"], ["Dave não está feliz com o cabelo. O cabelo dele está", "comprido demais"], ["Dave não gosta de café. Ele prefere beber", "chá"], ["Dave trabalha num café. Ele precisa lá", "fazer café"], ["David e Maria vão de carro para a cidade. Eles procuram", "uma casa"], ["David tem um barco. Ele usa o barco para", "pescar"], ["David é gordo. Ele come todo dia", "demais"], ["David trabalha num hospital. Ele é", "enfermeiro"], ["O carro da Leah quebrou. Ela leva o carro para", "a oficina"], ["O chefe do Patrick está bravo. Patrick acha que", "o chefe dele não é simpático"], ["O irmão da Souad teve um bebê. Souad está", "feliz"], ["O ônibus costuma atrasar. Paul acha que", "isso não é bom"], ["O ônibus anda devagar. Lia quer", "descer"], ["A filha da Sophia vê muita TV. Ela deveria", "brincar lá fora"], ["O médico fala com a Sofia. O médico dá à Sofia", "remédios"], ["A família Wang mora numa rua legal. Eles moram ao lado", "do parque"], ["As crianças leem juntas. No livro tem", "uma história bonita"], ["A sala está vazia. Todo mundo", "foi embora"], ["O rei está no noticiário. Ele fala sobre", "o tempo"], ["A aula começa às 11 horas. Hetty vai", "para a escola"], ["A aula acabou. Agora queremos ir", "para casa"], ["O homem fala ao telefone no carro. Isso é", "perigoso"], ["A cadeira quebrou. Jaimy vai", "consertar a cadeira"], ["O trem está lotado. Hanna precisa ficar", "em pé"], ["O filho da Samira vai à escola. Samira acha que", "a escola é importante"], ["Debra está na escola. Ela comete muitos", "erros"], ["Aquela laranja está velha. Você deve", "jogar a laranja fora"], ["Diego gosta de cozinhar. Ele gosta de cozinhar para", "a família dele"], ["Dimitri trabalha numa oficina. Ele conserta", "carros"], ["Dina lava as mãos. As mãos dela estão", "limpas"], ["Dunya vai a uma festa. A festa é da", "amiga dela"], ["Dylan está no dentista. Isso é", "desagradável"], ["Edgar e Joko cozinham juntos. Eles fazem isso", "com prazer"], ["Um mosquito me picou. Agora estou com", "coceira"], ["Eliza faz aniversário amanhã. O pai dela", "compra um bolo"], ["Ella assa biscoitos. Ela assa os biscoitos para", "os filhos dela"], ["Emma faz um curso. Isso é", "difícil"], ["Emma anota tudo. Depois ela vai", "tomar café"], ["Emma lava as mãos. Ela vai", "comer"], ["Houve um arrombamento na casa do Ben. Ele liga para", "a polícia"], ["Estão construindo casas novas no nosso bairro. Eu acho que", "isso é legal"], ["Tem lixo na rua. Isso é", "nojento"], ["Esma quer ser professora. Ela vai", "estudar"], ["Esra está doente. Ela acha que", "precisa ir ao médico"], ["Fanya está no mercado. Ela procura", "verdura"], ["Farid é cantor. Hoje ele precisa", "cantar"], ["Fatima compra uma bicicleta. Ela vai de bicicleta para", "o trabalho"], ["Fausia desce do barco. Ela anda até", "a praia"], ["Felipe gosta de ler. Ele compra todo mês", "um livro"], ["Felix vai nadar todo dia. Às vezes ele também vai", "de bicicleta"], ["Fico mora longe do trabalho. Ele precisa todo dia", "viajar"], ["Filip limpa o banheiro. Ele acha que", "está nojento"], ["Filiz compra uma jaqueta nova. Ela também compra", "uma calça"], ["Finn está assistindo televisão. Daqui a pouco ele vai", "comer"], ["Franco vai se mudar. A casa nova dele tem um", "jardim"], ["Frank lê o jornal. Ele lê sobre", "as notícias"], ["Fred vai à escola. Ele tem aula até", "as quatro horas"], ["Gabriel faz uma tarefa. Ele faz isso", "rápido"], ["Gary lê para a filha. Ler é", "aconchegante"], ["Gary mora perto da praia. Ele prefere", "nadar"], ["Gina vê televisão com frequência. Ela gosta de programas sobre", "animais"], ["Grace não gosta de verdura. Ela acha que", "verdura não é gostosa"], ["Halil dirige um caminhão. Ele acha que", "o trabalho é legal"], ["Han conseguiu o diploma. Agora ele vai", "trabalhar"], ["Hannah gosta de comer peixe. Ela compra esse peixe", "no mercado"], ["Hannah aprende holandês. Ela também aprende a", "escrever"], ["Hannah limpa a casa. Ela faz isso", "toda semana"], ["Harold não está sozinho. Ele tem", "amigos"], ["Harry caiu. Ele sente", "dor"], ["Hassan conserta a lambreta dele. A roda está", "quebrada"], ["Hassan trabalha num restaurante. Ele aprende lá a", "cozinhar"], ["O prato do Sahid caiu. Sahid está", "bravo"], ["A comida está muito quente! Você precisa", "esperar"], ["A fruta acabou. Agora vou", "à loja"], ["A casa da Tania é muito grande. A casa dela tem", "um jardim"], ["Está escuro. Eu prefiro então não viajar de", "bicicleta"], ["Está movimentado na cidade. Tem muitas", "pessoas"], ["A estrada está cheia. Emir acha que", "todo mundo dirige rápido demais"], ["A estação está cheia. Tem muitos", "passageiros"], ["Está frio na casa do Faiz. Ele quer", "ligar o aquecimento"], ["O tempo está ruim. Vamos de", "carro"], ["Está quieto na sala de aula. Os alunos", "escutam"], ["Hoje está quente. Ana quer", "tomar sorvete"], ["É domingo. Eva sempre vai aos domingos à", "igreja"], ["Chove o dia todo. William quer", "ficar em casa"], ["Está chovendo no caminho. Marta quer", "comprar um guarda-chuva"], ["O aeroporto fica longe. Vamos ao aeroporto de", "táxi"], ["Hetty terminou de cozinhar. Ela chama", "as crianças"], ["Hiba gosta de gatos. Ela não gosta de", "cachorros"], ["Hue quer ir ao mercado. Ela vai", "comprar frutas"], ["Ibrahim tem um carrinho com coisas. Ele leva as coisas", "para casa"], ["Todo mundo está feliz. É", "festa"], ["Estou procurando a estação de trem. O senhor pode me", "ajudar?"], ["Estou doente. Amanhã não vou", "ao trabalho"], ["Não bebo álcool. Bebo com prazer", "água"], ["Gosto de comer pão. Não gosto de", "arroz"], ["Nunca como uvas. Acho as uvas", "não gostosas"], ["Nunca como frango. Acho isso", "nojento"], ["Vou fazer um bolo. Você quer", "me ajudar?"], ["Amanhã vou comprar pão. Pão eu costumo comprar", "na padaria"], ["Vou ao clínico geral. Ele me dá", "remédios"], ["Vou à casa da minha irmã. Minha irmã mora", "longe"], ["Daqui a pouco vou ver o Hamza. Ele está", "doente"], ["Vou muito de ônibus. Vou então para a", "escola"], ["Eu li este jornal. Você quer agora", "ler o jornal?"], ["Tenho um computador com internet. Eu o uso", "todo dia"], ["Comprei uma mesa nova. Você quer a minha mesa velha", "ficar com ela?"], ["Não tenho carro. Um carro é", "caro"], ["Fiz sopa. Você quer a minha sopa", "provar?"], ["Comprei cenouras. Compro as cenouras para", "sopa"], ["Gosto de desenhar. Eu desenho", "uma casa"], ["Eu leio as notícias no celular. Meu marido lê as notícias", "no jornal"], ["Eu leio muito. Gosto de ler", "livros"], ["Quero ajudar pessoas doentes. Acho que", "é uma profissão bonita"], ["Imani gosta da escola. Ela gosta de", "ler"], ["Na cidade circulam muitas lambretas. Acho que", "é movimentado demais"], ["Numa cidade grande moram muitas pessoas. Acho que", "é movimentado"], ["Na comida tem pimentas. Acho que", "está picante demais"], ["Inez e Luis constroem uma casa. A casa ainda não tem", "telhado"], ["Inez vai a um show. Ela vai", "com a amiga"], ["Aquele livro é legal? Eu também quero muito", "ler o livro"], ["Isa está no intervalo. Ela liga para a", "mãe"], ["Isabel gosta de brincar com a boneca. Às vezes ela também brinca com", "o irmãozinho"], ["Ismet tem legumes no jardim. Ele vai", "cozinhar os legumes"], ["Ivan não está feliz com o trabalho. Ele acha o trabalho", "pesado demais"], ["Iwan quer ser saudável. Ele não bebe", "açúcar"], ["Jack compra tomates. Ele também compra", "cebolas"], ["Jack não quer ouvir a música. Ele acha a música", "alta demais"], ["Jacques é professor. Ele dá", "aula"], ["Jada faz panquecas para a família. Ela faz isso", "todo domingo"], ["Jafar não gosta de dançar. Ele acha dançar", "chato"], ["Jakob procura um táxi. Ele quer ir", "para a estação"], ["Jamal tem uma scooter nova. Agora ele pode", "andar mais rápido"], ["Jamal mora num prédio. Ele quer muito", "se mudar"], ["Jamila faz roupas. Essas roupas são para", "crianças"], ["Jan quebrou o braço. Agora ele precisa", "ir ao hospital"], ["Janek está com febre. A mãe dele dá a ele", "remédios"], ["Janine aprende holandês. Ela conversa com a professora sobre", "o dever de casa dela"], ["Jara está grávida. Ela vai ter", "um bebê"], ["Jasmine vai ao hospital. No hospital há", "muitos médicos"], ["Jason gosta de ir à escola. Ele é bom em", "fazer contas"], ["Jessie gosta de música. Ela gosta de tocar", "violão"], ["Jessie precisa trabalhar mais hoje. Ela só pode às oito horas", "ir para casa"], ["Jessy compra uma passagem. Ela vai", "de trem"], ["Jie está no mercado. Ele vê", "verduras"], ["Jim vai à praia. Lá é", "bonito"], ["Jim está com pressa. Ele precisa ir rápido para", "casa"], ["Jim está na frente da escola. Ele espera", "os amigos dele"], ["Jing lava os pratos. Depois ela vai", "secar"], ["Joel tem a cozinha suja. Ele precisa", "limpar"], ["Johan tem muitos livros. Ele gosta de", "ler"], ["Johanna põe açúcar no café. Açúcar é", "doce"], ["John e a filha assam um bolo juntos. Eles acham que", "o bolo é gostoso"], ["John gosta de cavalos. Ele acha os cavalos", "bonitos"], ["John mora perto de uma floresta. Ele vai lá todo fim de semana", "caminhar"], ["Johnny está cansado. Ele quer", "dormir"], ["Johnny está de folga no sábado. Ele vai", "à praia"], ["Jonas trabalha sempre ao ar livre. Isso é", "pesado"], ["Josh andou o dia todo. Agora ele quer", "descansar"], ["Josh compra um jornal na loja. Ele também compra", "uma revista"], ["Judy lê uma revista. Às vezes ela também lê", "um livro"], ["Julio vai se mudar. Ele precisa", "empacotar"], ["Karim está com dor nas costas. Ele precisa", "descansar"], ["Karim lê a previsão do tempo. O tempo vai ficar", "melhor"], ["Karima vai ao médico. Ela se sente", "doente"], ["Karin assiste ao telejornal. Ela faz isso", "toda noite"], ["Karl vai ao zoológico com a filha. Eles olham", "os animais"], ["Katya faz um curso. Ela quer", "ser professora"], ["Kay procura uma casa nova. Ele acha a casa velha", "pequena demais"], ["Kei janta com a família. Ele acha isso", "aconchegante"], ["Kenji fuma cigarros há vinte anos. Isso é", "ruim"], ["Kenny pesquisa na internet. Ele procura", "um emprego"], ["Kevin come uma salada com pimentão. Na salada também tem", "alface"], ["Kevin tem dever de casa. Ele precisa", "praticar muito"], ["Kevin trabalha num restaurante. Hoje ele faz", "sopa"], ["Kevin está na sala de aula. Ele tem uma pergunta sobre", "gramática"], ["Khalid é pescador. Depois do trabalho ele costuma estar", "cansado"], ["Kris trabalha no jardim. Ele faz isso", "no sábado"], ["Você pode me dar uma colher? Eu quero", "comer"], ["Você pode me levar à estação? Preciso", "estar na estação a tempo"], ["Kwasi é motorista. Ele dirige", "um ônibus"], ["Laila precisa acordar cedo todo dia. Às vezes ela está", "cansada"], ["Laiqa trabalha ao ar livre todo dia. Ela gosta da", "natureza"], ["Laura tem muitos colegas. Eles vão juntos", "almoçar"], ["Lea gosta de comer em restaurante. Ela acha que", "lá é aconchegante"], ["Lea vai ver o neto. Ela dá a ele", "um presente"], ["Lea está no hospital. Ela quer", "ir para casa"], ["Lei brinca na rua. Isso é", "perigoso"], ["Leon está resfriado. Ele precisa", "ficar em casa"], ["Leon toca violão. Ele faz isso", "bem"], ["Leyla dorme no mesmo quarto que a irmã. Elas acham que", "é bom"], ["Li e Chen vão tomar alguma coisa. Eles bebem", "café"], ["Lia quer mais dinheiro pelo trabalho. Assim ela pode", "economizar"], ["Liam não enxerga bem. Ele precisa", "ir ao oculista"], ["Lily faz esporte toda terça. Depois ela sempre come", "fruta"], ["Lin procura trabalho. Ela vai a", "uma agência de empregos"], ["Ling quer comer algo. Ela prefere não comer", "carne"], ["Linn não dormiu bem. Ela continua", "cansada"], ["Liyen vai cozinhar hoje à noite. Primeiro ela vai", "lavar a verdura"], ["Lizzie e a mãe vão de avião. Lizzie acha que", "voar é legal"], ["Loes está doente. Hoje ela vai", "ficar em casa"], ["Louis vai de scooter para o trabalho. Ele faz isso", "todo dia"], ["Louis usa o computador. Ele quer", "mandar um e-mail"], ["Lucia quebrou a perna. Agora ela não consegue", "andar"], ["Lucia quer um trabalho novo. Ela acha o trabalho antigo", "chato"], ["Madee tem um carro. Ela vai de carro para", "o trabalho"], ["Mae tem um carro novo. Agora ela pode", "dirigir mais rápido"], ["Posso pegar sua lambreta emprestada? A minha está", "quebrada"], ["Mai não vê o noticiário. Ela acha o noticiário", "chato"], ["Maja faz sopa. A sopa está", "gostosa"], ["Malik não vai fazer esporte hoje. Ele não tem", "tempo"], ["Malik comprou um sofá novo. O sofá antigo era", "velho"], ["Mandy come batata frita quando vê um filme. Às vezes ela também come", "pipoca"], ["Manuel é motorista de ônibus. Ele dirige", "o ônibus"], ["Marco está com vontade de tomar café. Ele também quer", "um biscoito"], ["Marco está doente. Ele liga para", "o médico"], ["Maria está com gripe. Ela precisa", "descansar"], ["Maria cozinha bem. Ela costuma cozinhar", "macarrão"], ["Maria lê um livro. Ela acha", "lindo"], ["Maria lê o jornal aos domingos. Às vezes ela lê", "uma revista"], ["Mariam fala com o professor. Mariam também fala com os", "colegas de classe"], ["Martin come um ovo toda manhã. A esposa dele costuma comer", "um pão"], ["Martin faz uma pergunta ao professor. A pergunta é sobre", "gramática"], ["Maryam cozinha para a Dina. Maryam faz", "macarrão"], ["Masha hoje consegue sentar no ônibus. Às vezes ela precisa ficar", "em pé"], ["Max usa capacete no trabalho. Isso é exigência do", "chefe"], ["Max gosta de jogar futebol. Jogar futebol é", "legal"], ["Maya fecha as cortinas. Ela vai", "dormir"], ["Megan vai se mudar hoje. Daqui a pouco ela mora", "numa casa nova"], ["Melissa espera na estação. Ela espera o", "amigo"], ["A senhora Perez não tem mais carro. Agora ela precisa ir", "de ônibus"], ["Mia faz as próprias roupas. Hoje ela faz um", "vestido"], ["Mia precisa ir rápido para casa. Ela vai de", "bicicleta"], ["Michael não gosta de tênis. Ele gosta mais de", "futebol"], ["Michelle vê filmes com frequência. Ela gosta de filmes sobre", "amor"], ["Michelle faz o dever de casa. Ela acha o dever", "difícil"], ["Miguel para de trabalhar. Ele está", "cansado"], ["Meu carro quebrou. Agora preciso", "andar a pé"], ["Meu chefe vai de bicicleta todo dia. Eu faço isso", "também"], ["Minha gasolina acabou. Agora preciso", "abastecer"], ["Meu irmão não gosta de navegar. Ele sempre passa mal", "no barco"], ["Meu irmão canta muito. Ele é", "cantor"], ["Meu vizinho gosta de fazer música. Eu acho isso", "bonito"], ["Meu avô caminha todo dia. Isso é", "saudável"], ["Meu avô está sentado no sofá. Ele olha", "a televisão"], ["Meu telefone quebrou. Agora não consigo", "ligar"], ["Meu trem sai em meia hora. Agora vou", "para a estação"], ["Meu pai tem um cavalo. Ele vai", "andar a cavalo"], ["Meu pai anda com uma bengala. Meu pai é", "idoso"], ["Meu pai gosta de ouvir o noticiário. Ele também escuta", "o rádio"], ["Minha irmã sempre dirige rápido. Eu acho que", "ela dirige rápido demais"], ["Mike está com dor na perna. Ele também sente dor no", "pé"], ["Mina trabalha no supermercado. Ela trabalha lá", "todo dia"], ["Ming anda muito de scooter. Ele não quer", "andar rápido demais"], ["Mira está com vontade de tomar café. Ela bebe café com", "leite"], ["Mo e a família jogam um jogo. Depois eles vão", "comer"], ["Mo está sentado à mesa. Ele escreve uma carta ao", "amigo"], ["Mohammed faz carros. Ele acha isso", "legal"], ["Monica gosta de tirar fotos. Ela gosta mais de tirar fotos", "da natureza"], ["Monica quer muito uma casa com jardim. Ela acha que", "um jardim é bom"], ["Myra e Liz vão a um café. Elas querem", "tomar café"], ["Nadia comprou frango. Ela vai primeiro", "lavar o frango"], ["Naima quer ser cabeleireira. Ela aprende a", "cortar cabelo"], ["Nancy e Oscar estão no cinema. Eles acham o filme", "bonito"], ["Nasir procura uma casa nova. Ele quer uma casa com", "um jardim"], ["Nasira mora perto do supermercado. Ela também mora perto da", "estação"], ["Nick quer ver a família. Ele viaja de", "trem"], ["Nick procura trabalho. Ele quer trabalhar numa", "padaria"], ["Nicole vai ao dentista. Ela sente dor no", "dente"], ["Nikki procura uma casa nova. Ela quer muito", "se mudar"], ["Nina brinca no jardim. Ela brinca com", "as bonecas dela"], ["Noah lê uma notícia no jornal. A notícia é sobre", "o tempo"], ["Noor trabalha numa loja. Ela vende calças e também", "jaquetas"], ["Nora e Souffian moram numa aldeia. Eles preferem morar", "na aldeia"], ["Odara arruma a casa. Ela guarda as roupas", "no armário"], ["Olga está doente. Ela precisa", "descansar"], ["Omar compra peixe. Ele também compra", "arroz"], ["Omid sempre lê o jornal primeiro de manhã. Depois ele vai", "trabalhar"], ["Nosso telhado quebrou. Nós precisamos", "consertar o telhado"], ["Orma tem vizinhos legais. Ela vai", "conversar com os vizinhos"], ["Pablo vai muito de trem. Ele vai então para", "o trabalho"], ["Pablo toca violão. Ele pratica", "todo dia"], ["Pari vai de ônibus todo dia. Hoje ela vai", "de bicicleta"], ["Pascal acha o trabalho difícil. Ele quer", "outro emprego"], ["Paul vai dormir cedo. Ele precisa amanhã", "acordar cedo"], ["Paul está com fome. A mãe dele dá a ele", "um pão"], ["Paul comemora o aniversário. Ele está", "de aniversário"], ["Paula recebeu uma carta. A carta é", "da prefeitura"], ["Pedro acende a luz. Está", "escuro"], ["Pedro mora numa fazenda. Ele tem lá", "vacas"], ["Peter faz máquinas. Ele trabalha muitas vezes", "com as mãos"], ["Peter brinca com o filho. Eles estão", "no parque"], ["Philip anda de bicicleta na estrada. A estrada está", "molhada"], ["Philippa está sentada no jardim. Ela também fica muito", "ao sol"], ["Pia mora ao lado de um parque. Ela vai lá", "caminhar"], ["Priya faz um curso. Mais tarde ela será", "professora"], ["Priya faz molho. As filhas dela querem", "macarrão"], ["Quito hoje não come em casa. Ele come", "na casa do amigo"], ["Rachel canta muitas vezes sozinha. Às vezes ela também canta", "no coral"], ["Rafael tem um telefone. Ele liga todo dia para a", "mãe"], ["Raheem tem uma casa boa. Ele mora lá com", "a família dele"], ["Rahime tem aula de holandês. Ela acha a professora", "simpática"], ["Rasha trabalha num escritório. O escritório é", "grande"], ["Remi trabalha no mercado. Ele vende", "verduras"], ["Rhonda perdeu a chave. Agora ela precisa", "comprar uma chave nova"], ["Rico come muito doce. Doce faz mal para", "os seus dentes"], ["Rico vai tomar uma injeção. Ele está com", "medo"], ["Rima e a filha estão na cozinha. A filha quer", "ajudar"], ["Robin anda rápido para a escola. Ele está", "atrasado"], ["Romeo trabalha numa escola. Ele dá aula para", "crianças"], ["Roy quer falar com o amigo. Ele vai", "até ele"], ["Ryan tem pouco dinheiro. Ele trabalha", "muito"], ["Ryan quer ver um filme. Ele vai ao", "cinema"], ["Sabir tem um emprego novo. Ele trabalha numa", "loja"], ["Saïd está de férias. Ele vai", "para a Espanha"], ["Saïd chegou atrasado ao trabalho. O chefe dele está", "bravo"], ["Salih é padeiro. Ele trabalha geralmente", "de manhã"], ["Salim corta as cebolas. A esposa dele vai", "refogar as cebolas"], ["Sam está na escola hoje. Daqui a pouco ele vai para", "casa"], ["Sam sai da sala. Ele vai", "para casa"], ["Samir está atrasado para o trem. Agora ele precisa", "correr"], ["Samira tem uma conversa com o chefe. Eles falam sobre", "o trabalho"], ["Samira vai ver os pais. Eles vão juntos", "comer"], ["Samira está com dor nas costas. Ela não consegue", "andar bem"], ["Samuel tem aula hoje. Amanhã ele vai", "de novo"], ["Samuel fala com o chefe. Ele pede", "folga"], ["Samuel gosta do intervalo. Ele vai então", "conversar"], ["Sandra precisa fazer muita coisa hoje. Ela precisa", "trabalhar"], ["Sanne não sabe cozinhar bem. A comida está", "fria"], ["Sara está rindo. Ela está", "feliz"], ["Sara conversa com a vizinha. Elas falam sobre", "o tempo"], ["Sarah nunca fica doente. Ela sempre se sente", "saudável"], ["Sari procura um livro do curso. Ela vai à", "livraria"], ["Sarina viaja de ônibus. Ela vai para a", "escola"], ["Sasha nem sempre come em casa. Ela vai muito ao", "restaurante"], ["Sasha vai ao cinema. Ela vê", "um filme"], ["Sasha tem um cachorro. Ela também tem", "um gato"], ["Savita vai a uma entrevista de emprego. Ela quer", "trabalhar"], ["Scott faz um curso. Ele acha aprender", "legal"], ["Selim não consegue ligar para o irmão. Ele manda ao irmão uma", "mensagem"], ["Shaila leva uma mochila para a escola. Na mochila tem", "um livro"], ["Shanna tem o diploma. Ela está", "feliz"], ["Shing quebrou o braço. Ele não pode", "fazer esporte"], ["Shun não quer comer. Ele prefere", "café"], ["Siham faz um curso. Ela aprende a", "cozinhar"], ["Simon constrói uma casa. A casa vai ficar", "bonita"], ["Simon quer ser professor. Ele precisa", "aprender muito"], ["Simone gosta de ler jornal. Ela o compra", "todo dia"], ["Sita assa um bolo. Os filhos dela acham", "o bolo gostoso"], ["Sita dá bolo ao avô. Ele acha que", "o bolo é gostoso"], ["Sjaak trabalha numa fábrica. Ele trabalha lá", "todo dia"], ["Sonia está no ônibus. Ela vai para", "o trabalho"], ["Sonya gosta de música. Ela escuta", "o rádio"], ["Sophia gosta de arroz. Ela cozinha isso", "todo dia"], ["Sophie está muito na floresta. Ela gosta de olhar", "os pássaros"], ["Sou gosta de comer milho. Ela costuma comer milho com", "sal"], ["Souad compra bananas no mercado. Ela também compra", "maçãs"], ["Stanley quer uma casa maior. Ele também quer", "um jardim"], ["Stefan fala ao telefone com a irmã. A irmã dele está", "doente"], ["Stefana gosta de caminhar. Ela faz isso", "todo dia"], ["Stephan precisa fazer esporte por ordem do médico. Ele vai", "fazer esporte"], ["Steven está no hospital. Amanhã ele vai", "para casa"], ["Sven está saindo do hospital. Ele está", "melhor"], ["Sylvia é cabeleireira. Hoje ela precisa", "cortar muito cabelo"], ["Tamal precisa frear. Ele vê um", "semáforo"], ["Tanya é padeira. Ela vende", "pão"], ["Tara quer comprar uma moto. Uma moto é", "cara"], ["Tara procura trabalho. Ela olha", "no jornal"], ["Tariq come sozinho. Ele acha que", "é chato"], ["Tess come muita fruta. Fruta é", "saudável"], ["Thirza quer trabalhar no hospital no futuro. Ela precisa primeiro", "estudar"], ["Thomas está internado no hospital. Ele acha que", "a comida não é boa"], ["Tim gosta de tomar café. Ele prefere café a", "chá"], ["Tim faz aniversário. A irmã dele dá a ele um", "presente"], ["Tirza compra uma cama nova. Ela também compra", "um armário"], ["Tony come pão. Ele come o pão com", "queijo"], ["Tuan está na escola. Na semana que vem ele tem", "uma prova"], ["Muita gente fala durante a aula. Nena acha que", "é barulhento demais"], ["Vera põe açúcar no chá. O chá fica assim", "doce"], ["Victor tem uma casa nova. Ele vai amanhã", "se mudar"], ["Wayan toma café com o vizinho. Ele acha que", "é aconchegante"], ["Vamos buscar meu irmão. Ele não tem", "carro"], ["Queremos fazer algo legal. Vamos", "ao parque"], ["Quer ver a minha casa? Eu moro aqui", "com prazer"], ["Você pode cuidar dos meus filhos? Eu vou hoje à noite", "sair"], ["William toma uma bebida. Isso ajuda contra", "dor de cabeça"], ["Xuan está no supermercado. Ela quer", "fazer compras"], ["Yaira trabalha numa farmácia. Ela trabalha lá", "todo dia"], ["Younes tem muitos amigos. Ele vai muito com eles ao", "café"], ["Yun não come muito de manhã. Ela come então só", "fruta"], ["Yvonne coloca as coisas dela em caixas. Ela vai amanhã", "se mudar"], ["Zarina precisa primeiro limpar o peixe. Depois ela vai", "fritá-lo"], ["Zina cozinha com muitos temperos. Assim a comida dela fica", "gostosa"]];
+var EMO=[[/dokter|ziek|pijn|medicijn|ziekenhuis|koorts|griep|verkouden|tandarts|kies|prik/,"🩺"],[/trein|station|spoor/,"🚆"],[/bus\b|bushalte/,"🚌"],[/fiets/,"🚲"],[/auto|rijdt|garage|benzine|chauffeur/,"🚗"],[/vliegtuig|vliegveld|vliegen/,"✈️"],[/boot|varen/,"⛵"],[/strand|zwemmen/,"🏖️"],[/koken|soep|pasta|keuken|eten|ontbijt|lunch|pannenkoek|taart|bakt|bakker|brood/,"🍲"],[/koffie|thee|drink/,"☕"],[/fruit|appel|banaan|peer|sinaasappel|druiven/,"🍎"],[/groente|markt|paprika|tomaat|wortel|ui\b|uien/,"🥕"],[/winkel|supermarkt|boodschap|koopt|kopen/,"🛒"],[/school|leraar|lerares|les\b|klas|leren|leert|opleiding|studeren|examen|toets|huiswerk|docent|diploma/,"🎓"],[/boek|lezen|leest|krant|tijdschrift|nieuws/,"📖"],[/muziek|zingen|zang|gitaar|concert|koor/,"🎵"],[/film|bioscoop|televisie|tv\b/,"🎬"],[/huis|verhuizen|dak|tuin|kamer|buurt|flat/,"🏠"],[/werk|kantoor|baas|fabriek|collega|baan|solliciteren/,"💼"],[/regen|weer|paraplu|zon\b/,"🌦️"],[/telefoon|belt|mail|bericht|appje|computer|internet/,"📱"],[/voetbal|sport|wandelen|lopen|loopt|rennen/,"⚽"],[/geld|sparen|duur/,"💶"],[/kleren|jas|broek|jurk|schoenen|kleding/,"👗"],[/hond|kat\b|paard|dieren|vogel|koe/,"🐾"],[/baby|kind|zoon|dochter|moeder|vader|familie|opa/,"👨‍👩‍👧"],[/slapen|bed\b|moe\b|vermoeid/,"😴"],[/politie|ingebroken/,"🚓"]];
+var EMO2=[[/bakker|brood|boterham|koekje|bakkerij/,"🥖"],[/bloemen/,"💐"],[/taart|jarig|verjaardag|feest/,"🎂"],[/cadeau/,"🎁"],[/tandarts|kies|tand\b|tanden/,"🦷"],[/kapper|knippen/,"✂️"],[/vis\b|visser|vissen/,"🐟"],[/schoonmaak|schoon|vies|rommel|badkamer|handen/,"🧹"],[/bos\b|wandelen|natuur/,"🌳"],[/kerk/,"⛪"],[/sleutel/,"🔑"],[/bank\b|stoel|tafel|kast|bed\b/,"🛋️"],[/politie|ingebroken/,"🚓"],[/dorp|boerderij|koeien/,"🏘️"],[/computer|internet|mail\b/,"💻"],[/hout|machine|repareren|kapot|maken|garage|brommer|scooter/,"🔧"]];
+function emoFor(t){var n=String(t).toLowerCase(),out=[],k;
+  var first=n.match(/\b(hij|ze|zij)\b/);if(first)out.push(first[1]==="hij"?"👨":"👩");
+  var L=EMO2.concat(EMO);
+  for(k=0;k<L.length&&out.length<3;k++)if(L[k][0].test(n)&&out.indexOf(L[k][1])<0)out.push(L[k][1]);
+  return out.length>(first?1:0)?out.join(" "):(first?out[0]+" 🖼️":"🖼️")}
+var _off=null;
+function official(){
+  if(_off)return _off;
+  var va=OFV_RAW.map(function(r,i){return{id:"ofv"+i,nl:r[0],pt:"",w:guessW(r[0]),frame:"",m:r[1],official:true}});
+  var aa=OFA_RAW.map(function(r,i){var m=r[0].match(/^(.*[.!?])\s+(.+)$/),t=OFA_TR[i]||["",""];return{id:"ofa"+i,p:emoFor(r[0]+" "+r[1]),c:m?m[1]:"",s:m?m[2]:r[0],cat:"",a:[],m:r[1],pt:t[0]&&t[1]?(t[0]+" "+t[1]+"."):"",tp:t[0]?(t[0]+" ___"):"",g:"",official:true}});
+  _off={va:va,aa:aa};return _off;
+}
+function VAall(){return VA.concat(official().va)}
+function AAall(){return AA.concat(official().aa)}
+
+/* ---------- aulas ---------- */
+var LESSONS=[
+{id:"omdat",t:"Waarom → Omdat",min:5,
+ why:"Quando a pergunta começa com WAAROM (por quê), a prova quer o motivo. É onde mais se perde ponto.",
+ rule:"Comece com «Omdat …» ou «Ik … , omdat ik …». Depois de «omdat», o verbo vai para o FIM da frase.",
+ ex:[["Omdat ik dorst heb.","Porque estou com sede."],["Ik ga naar school, omdat ik Nederlands wil leren.","Vou à escola porque quero aprender holandês."],["Ik ga naar de bakker, omdat ik brood nodig heb.","Vou à padaria porque preciso de pão."],["Omdat ik moe ben.","Porque estou cansada."]],
+ trap:"Erros comuns: repetir «waarom» na resposta, ou responder só «brood». A pergunta pede o MOTIVO.",
+ tip:"Pense: WAAROM pede OMDAT. Sempre. Verbo no fim, como um ponto final.",
+ pool:function(){return VAall().filter(function(x){return x.w==="waarom"})}},
+{id:"ultima",t:"Frase com figura: a última palavra",min:6,
+ why:"Você ouve o começo da frase e diz só o final. Quase todos os erros são de TIPO de palavra.",
+ rule:"Leia as últimas palavras antes do «…» e pergunte: falta um lugar, uma coisa, uma parte do corpo, um sentimento ou uma palavra que descreve?",
+ ex:[["Nu heeft hij pijn in zijn … → rug","Dor nas costas, porque trabalha sentado."],["Ze gaat … → naar binnen","Ela abre a porta e entra."],["De limonade wordt … → zoet","Muito açúcar deixa doce."],["Ze werkt op haar … → laptop","Ela digita textos."]],
+ trap:"Erros comuns: responder em inglês, ou uma palavra que não combina com a história («pakketje» para morar, «tanden» para escritório).",
+ tip:"Antes de falar, olhe a figura e a primeira frase. Elas dão a pista do final.",
+ pool:function(){return official().aa.concat(AA)}},
+{id:"dehet",t:"De ou het: nieuwe / nieuw",min:4,
+ why:"As frases com «een nieuwe …» e «een nieuw …» aparecem muito. A palavra final tem que combinar com o artigo.",
+ rule:"«een nieuwe» + palavra DE (de broek, de fiets). «een nieuw» + palavra HET (het huis, het boek).",
+ ex:[["een nieuwe broek","uma calça nova (de broek)"],["een nieuwe fiets","uma bicicleta nova (de fiets)"],["een nieuw huis","uma casa nova (het huis)"],["een nieuw boek","um livro novo (het boek)"]],
+ trap:"Se a frase termina em «een nieuwe …», «boek» e «huis» não servem. Escolha uma palavra DE.",
+ tip:"NIEUWE termina em E, como DE. NIEUW sem E fica com HET.",
+ pool:function(){return AA.filter(function(x){return /nieuw/.test(x.s)}).concat(shuffle(AA.filter(function(x){return x.cat==="ding"&&!/nieuw/.test(x.s)})).slice(0,3))}},
+{id:"frase",t:"Frase curta: Ik + verbo + resto",min:5,
+ why:"Na prova uma frase curta e completa vale mais que uma palavra solta ou uma frase com a ordem errada.",
+ rule:"Fale na ordem: Ik + VERBO + resto. O verbo fica sempre em segundo lugar. Com «ik», o verbo não leva -t.",
+ ex:[["Ik woon in Utrecht.","Eu moro em Utrecht."],["Ik spreek Portugees en een beetje Nederlands.","Falo português e um pouco de holandês."],["Ik heb twee kinderen.","Tenho dois filhos."],["Ik ga in het weekend wandelen.","No fim de semana vou caminhar."],["Ik drink koffie.","Bebo café."]],
+ trap:"Erros comuns: «twee spreken» (sem «ik»), «ik leuk loop» (verbo fora do lugar), «ik koopt» (com «ik» é «koop»).",
+ tip:"EU - VERBO - RESTO. Se o verbo não estiver logo depois do «ik», pare e refaça.",
+ pool:function(){return VAall().filter(function(x){return["wat","waar","wie","hoe","watvoor","welke"].indexOf(x.w)>=0})}},
+{id:"numeros",t:"Horas, dias, quantidades",min:5,
+ why:"Perguntas sobre quando, que horas, quantas vezes e quantos têm resposta curta e previsível.",
+ rule:"HOE LAAT → «om zeven uur». WANNEER → «op maandag». HOE VAAK → «elke dag / één keer per week». HOEVEEL → número + a coisa no plural.",
+ ex:[["Ik sta om zeven uur op.","Levanto às sete horas."],["Ik heb op zaterdag en zondag vrij.","Folgo no sábado e no domingo."],["Ik ga twee keer per week naar school.","Vou à escola duas vezes por semana."],["Ik heb twee honden.","Tenho dois cachorros."]],
+ trap:"Erro comum: «twee hond». Com número maior que um, a palavra vai para o plural: «twee honden».",
+ tip:"Números juntos com a coisa: «twee honden», «drie kinderen».",
+ pool:function(){return VAall().filter(function(x){return["hoevaak","hoelaat","wanneer","hoeveel","noem"].indexOf(x.w)>=0}).concat(AA.filter(function(x){return x.cat==="getal"||x.cat==="tijd"}))}}
+];
+var ORDER=["omdat","ultima","dehet","frase","numeros"];
+function lessonById(id){for(var i=0;i<LESSONS.length;i++)if(LESSONS[i].id===id)return LESSONS[i];return LESSONS[0]}
+function lessonAcc(L){var ok=0,bad=0;L.pool().forEach(function(x){var r=store.items[x.id];if(r){ok+=r.ok;bad+=r.bad}});return ok+bad?ok/(ok+bad):null}
+function nextLesson(){
+  for(var i=0;i<ORDER.length;i++)if(!store.les[ORDER[i]])return lessonById(ORDER[i]);
+  var w=LESSONS[0],wa=2;LESSONS.forEach(function(L){var a=lessonAcc(L);if(a!==null&&a<wa){wa=a;w=L}});return w;
+}
+var QW=/^(waarom|wat|waar|wie|hoe|wanneer|welke|welk)\b/;
+var EN=["the","and","my","you","is","are","have","open","door","apple","book","house","yes","with","for","hello"];
+function coach(it,heard){
+  var d=it.d,n=norm(heard),W=n.split(" ").filter(Boolean),o=[];
+  if(!W.length)return o;
+  if(W.some(function(w){return EN.indexOf(w)>=0}))o.push("Tem palavra em inglês. Na prova responda só em holandês.");
+  if(/\bik \w+t\b/.test(n)&&!/\bik (heb|ben|moet|wil|kan|zal|ga|word|eet|houd|hou|weet|doe|zit|sta|kom|vind)\b/.test(n))o.push("Com «ik», o verbo não leva -t: ik koop, ik woon, ik werk.");
+  if(it.k==="va"){
+    if(QW.test(n))o.push("Não comece repetindo a palavra da pergunta. Comece com «Ik …» ou com a resposta.");
+    if(W.length===1&&["noem","ja"].indexOf(d.w)<0)o.push("Uma palavra só vale pouco. Tente uma frase curta: Ik + verbo + resto"+(d.frame?" («"+d.frame+"»)":"")+".");
+    var m=MUST[d.w];if(m&&!m[0].test(n))o.push(m[1]);
+  }else{
+    if(W.length>4)o.push("Diga só o final da frase, não ela inteira.");
+    var c=CAT[d.cat];if(c&&!matchAA(d,heard))o.push("Aqui faltava: "+c[0].toLowerCase()+". "+c[2]);
+  }
+  return o;
+}
+
+/* ---------- state & storage ---------- */
+var KEY="spreken-a1-v1";
+var store={profile:{},items:{},days:{},custom:[],srs:{},rate:0.7,simLive:true,les:{},mm:{}};
+try{var raw=localStorage.getItem(KEY);if(raw){var o=JSON.parse(raw);store.profile=o.profile||{};store.items=o.items||{};store.days=o.days||{};store.custom=o.custom||[];store.srs=o.srs||{};store.rate=o.rate||0.7;store.simLive=o.simLive!==false;store.les=o.les||{};store.mm=o.mm||{}}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(store))}catch(e){}}
+var S={view:"home",sess:null,smp:undefined,micBad:false};
+
+function $(s){return document.querySelector(s)}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function P(k){var v=(store.profile[k]||"").trim();return v||PD[k]}
+function fill(t){return(t||"").replace(/\{(\w+)\}/g,function(_,k){return P(k)})}
+function norm(s){return s.toLowerCase().replace(/[^\p{L}\p{N}\s']/gu," ").replace(/\s+/g," ").trim()}
+function dkey(d){return d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate()}
+function todayCount(){return store.days[dkey(new Date())]||0}
+function streak(){var d=new Date(),s=0;if(!store.days[dkey(d)])d.setDate(d.getDate()-1);while(store.days[dkey(d)]){s++;d.setDate(d.getDate()-1)}return s}
+function daysLeft(){var ex=new Date(2026,10,10),t=new Date();t.setHours(0,0,0,0);return Math.round((ex-t)/864e5)}
+function hash(s){var h=5381;for(var i=0;i<s.length;i++)h=((h<<5)+h+s.charCodeAt(i))|0;return Math.abs(h).toString(36)}
+function record(id,ok){var r=store.items[id]||{ok:0,bad:0};if(ok)r.ok++;else r.bad++;store.items[id]=r;var k=dkey(new Date());store.days[k]=(store.days[k]||0)+1;save()}
+function guessW(q){
+  var n=norm(q);
+  if(/noem er/.test(n))return"noem";
+  if(/waarom/.test(n))return"waarom";
+  if(/hoe vaak/.test(n))return"hoevaak";
+  if(/hoe laat/.test(n))return"hoelaat";
+  if(/hoeveel/.test(n))return"hoeveel";
+  if(/wat voor/.test(n))return"watvoor";
+  if(/wanneer/.test(n))return"wanneer";
+  if(/\bwaar\b/.test(n))return"waar";
+  if(/\bwie\b/.test(n))return"wie";
+  if(/\bwelke?\b/.test(n))return"welke";
+  if(/^hoe\b/.test(n))return"hoe";
+  return"wat";
+}
+function buildCustom(){
+  return(store.custom||[]).map(function(c){
+    if(c.k==="va")return{id:c.id,nl:c.nl,pt:"",w:guessW(c.nl),frame:"",m:c.m||"",custom:true};
+    return{id:c.id,p:"🖼️",c:c.c,s:c.s,cat:"",a:[],m:c.m||"",pt:"",g:"",custom:true};
+  });
+}
+function parseCustom(text){
+  var out=[],skipped=0;
+  text.split(/\n+/).forEach(function(l){
+    l=l.replace(/\s+/g," ").trim().replace(/^[•*\-–\s]+/,"").replace(/^\d+[.)]\s*/,"");
+    if(!l)return;
+    if(out.length>=400)return;
+    var parts=l.split(/\s*\|\s*/),q=parts[0],m=(parts[1]||"").trim(),id="my"+hash(q);
+    if(/(\.{2,}|…)\s*$/.test(q)){
+      var t=q.replace(/(\.{2,}|…)\s*$/,"").trim(),mt=t.match(/^(.*[.!?])\s+(.+)$/);
+      out.push({id:id,k:"aa",c:mt?mt[1]:"",s:mt?mt[2]:t,m:m});
+    }else if(/\?\s*$/.test(q)||/^(waarom|wat|waar|wie|hoe|hoeveel|wanneer|welke|welk|noem)\b/i.test(q)){
+      out.push({id:id,k:"va",nl:q,m:m});
+    }else skipped++;
+  });
+  parseCustom.skipped=skipped;
+  return out;
+}
+function customText(){return(store.custom||[]).map(function(c){return(c.k==="va"?c.nl:((c.c?c.c+" ":"")+c.s+" …"))+(c.m?" | "+c.m:"")}).join("\n")}
+function normQ(x){var t=x.nl||((x.c?x.c+" ":"")+(x.s||""));return String(t).toLowerCase().replace(/[^a-zà-ÿ0-9 ]/g,"").replace(/\s+/g," ").trim()}
+function dedupe(list){var seen={},out=[];list.forEach(function(x){var k=(x.nl?"v:":"a:")+normQ(x);if(seen[k])return;seen[k]=1;out.push(x)});return out}
+function allItems(){return dedupe(official().va.concat(official().aa,VA,AA,buildCustom()))}
+function weak(){return allItems().filter(function(x){var r=store.items[x.id];return r&&r.bad>r.ok})}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t}return a}
+function weight(id){var r=store.items[id];if(!r)return 1+Math.random();if(r.bad>r.ok)return 2+Math.random();return .2+Math.random()*.6}
+function pick(pool,n){return pool.map(function(x){return[weight(x.id),x]}).sort(function(a,b){return b[0]-a[0]}).slice(0,n).map(function(x){return x[1]})}
+var IV=[0,1,2,4,7];
+var TIPS=[
+"Fale em pé e andando pela casa. O corpo em movimento ajuda o TDAH a lembrar.",
+"Fale a frase com um gesto (mão no peito para «ik», apontar para «daar»). Gesto + voz gruda mais.",
+"Sussurre 1 vez, fale normal 1 vez, fale rápido 1 vez. Três jeitos, mesma frase.",
+"Imagine a cena. Para «Ik drink koffie», veja a xícara na sua mão.",
+"Diga a frase para o espelho ou para o seu marido. Falar para alguém conta como treino de verdade.",
+"Errou? Ótimo, ela volta daqui a pouco. O cérebro guarda melhor o que foi difícil.",
+"Dez minutos, três vezes ao dia, valem mais que uma hora de uma vez só.",
+"Treine sempre no mesmo horário, com um alarme. A rotina poupa sua força de vontade.",
+"Antes de ver a resposta, tente. Mesmo errando, tentar fixa mais do que só ler.",
+"Cansada? Pare. Dormir é parte do estudo: o sono é quando a memória se organiza."
+];
+function t0(){var d=new Date();d.setHours(0,0,0,0);return d.getTime()}
+function dueList(){var n=Date.now();return allItems().filter(function(x){var r=store.srs[x.id];return r&&r.due<=n})}
+function freshList(){var f=allItems().filter(function(x){return !store.srs[x.id]});return shuffle(f.filter(function(x){return x.official})).concat(shuffle(f.filter(function(x){return !x.official})))}
+function gradeSRS(id,lv){
+  var r=store.srs[id]||{box:0,due:0};
+  if(lv===2)r.box=Math.min(4,r.box+1);else if(lv===0)r.box=0;
+  var days=IV[r.box],dl=daysLeft();
+  if(dl>1)days=Math.min(days,Math.max(1,dl-1));
+  r.due=t0()+days*864e5;
+  store.srs[id]=r;save();
+}
+function wrapVA(d){return{k:"va",d:d}}
+function wrapAA(d){return{k:"aa",d:d}}
+function wrapAny(d){return d.nl!==undefined?wrapVA(d):wrapAA(d)}
+function fullAA(d){return d.m?(d.c?d.c+" ":"")+d.s+" "+d.m+".":""}
+function cur(){return S.sess.items[S.sess.i]}
+
+var toastT;
+function toast(t){var el=$("#toast");el.textContent=t;el.hidden=false;clearTimeout(toastT);toastT=setTimeout(function(){el.hidden=true},3200)}
+function say(t){
+  try{
+    var u=new SpeechSynthesisUtterance(t);u.lang="nl-NL";u.rate=store.rate||0.7;
+    var vs=speechSynthesis.getVoices();
+    for(var i=0;i<vs.length;i++){if(vs[i].lang&&vs[i].lang.toLowerCase().indexOf("nl")===0){u.voice=vs[i];break}}
+    speechSynthesis.cancel();speechSynthesis.speak(u);
+  }catch(e){toast("Áudio indisponível neste aparelho")}
+}
+try{speechSynthesis.getVoices()}catch(e){}
+
+/* ---------- Claude (sample) ---------- */
+async function getSample(){
+  if(S.smp===undefined){try{S.smp=window.claude&&window.claude.use?await window.claude.use("sample"):null}catch(e){S.smp=null}}
+  return S.smp;
+}
+function parseJSON(t,arr){var m=t.match(arr?/\[[\s\S]*\]/:/\{[\s\S]*\}/);if(!m)throw new Error("json");return JSON.parse(m[0])}
+var BASE="Você é professor de holandês de uma brasileira com TDAH, nível A1 (basisexamen inburgering buitenland, parte Spreken). Na prova, o conteúdo vale 1 ponto se a resposta responde à pergunta ou completa a frase de forma lógica e compreensível; respostas curtas valem. A resposta dela pode vir de ditado do celular, então erros de transcrição são possíveis. Avalie como um examinador A1 gentil; erros pequenos de gramática não reprovam, mas a palavra deve encaixar na frase (tipo de palavra, de/het, ordem do verbo). ";
+var FMT='"nivel":"boa" ou "quase" ou "refazer"';
+async function askVA(smp,d,a){
+  var p=BASE+'Tipo: pergunta. Pergunta em holandês: "'+d.nl+'". Resposta dela: "'+a+'". Responda SOMENTE com JSON válido, sem texto fora dele: {'+FMT+',"corrigida":"resposta correta em holandês A1, frase curta e completa","porque":"no máximo 2 frases curtas em português do Brasil: o erro principal, ou um elogio se estiver certa","dica":"uma dica curta em português sobre verbo, ordem das palavras ou a palavra da pergunta, ou string vazia"}. Se estiver correta, "corrigida" repete a resposta dela.';
+  var r=await smp(p,{modelTier:"quick",cache:false});return parseJSON(r.text)
+}
+async function askAA(smp,d,a){
+  var p=BASE+'Tipo: completar frase com imagem (emojis que representam a imagem: '+d.p+'). Contexto: "'+(d.c||"")+'". Começo da frase: "'+d.s+' …". Ela disse só o final: "'+a+'". Responda SOMENTE com JSON válido, sem texto fora dele: {'+FMT+',"corrigida":"a frase completa correta em holandês, com o final dela corrigido se preciso","porque":"no máximo 2 frases curtas em português do Brasil: se encaixa ou não, e por quê (tipo de palavra, de/het, verbo no fim)","dica":"uma dica curta em português ou string vazia"}. Se o final dela completar a frase de forma lógica e correta, mesmo diferente do esperado, nivel é "boa".';
+  var r=await smp(p,{modelTier:"quick",cache:false});return parseJSON(r.text)
+}
+async function askBatch(smp,pairs){
+  var list=pairs.map(function(x,i){return(i+1)+". ["+(x.k==="va"?"pergunta":"completar frase")+'] "'+x.q+'" | Resposta dela: "'+x.a+'"'}).join("\n");
+  var p=BASE+"Avalie cada item abaixo. Nos itens «completar frase», ela disse só o final da frase.\n"+list+'\nResponda SOMENTE com um array JSON válido com um objeto por item, na mesma ordem: [{'+FMT+',"corrigida":"resposta ou frase completa correta em holandês A1","porque":"1 frase curta em português do Brasil"}]';
+  var r=await smp(p,{modelTier:"quick",cache:false});return parseJSON(r.text,true)
+}
+function lvl(x){return["boa","quase","refazer"].indexOf(x)>=0?x:"quase"}
+
+/* ---------- local checks ---------- */
+function localVA(d,a){
+  var n=norm(a),words=n.split(" ").filter(Boolean),checks=[];
+  checks.push({ok:words.length>=3,t:words.length>=3?"Frase completa":"Tente uma frase completa: quem + verbo + informação."});
+  var m=MUST[d.w];
+  if(m){var ok=m[0].test(n);checks.push({ok:ok,t:ok?"Respondeu ao tipo de pergunta":m[1]})}
+  return{ok:checks.every(function(c){return c.ok}),checks:checks};
+}
+function matchAA(d,a){
+  if(!d.a||!d.a.length)return false;
+  var n=norm(a);
+  return d.a.some(function(x){
+    if(x==="#num")return /(\w*tig\b|\b\d+\b)/.test(n);
+    return new RegExp("(^| )"+x.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+"( |$)").test(n);
+  });
+}
+
+/* ---------- sessions ---------- */
+function startSession(mode){
+  var items=[];
+  if(mode==="mix"){var v=pick(VA,3),a=pick(AA,2);items=[wrapVA(v[0]),wrapAA(a[0]),wrapVA(v[1]),wrapAA(a[1]),wrapVA(v[2])]}
+  else if(mode==="fala"){
+    var du=shuffle(dueList()).slice(0,7),fr=freshList(),nf=Math.max(3,10-du.length);
+    var all=du.concat(fr.slice(0,nf));
+    if(!all.length)all=pick(allItems(),8);
+    items=shuffle(all.slice(0,10)).map(wrapAny);
+    if(!items.length){toast("Nada para treinar");return}
+  }
+  else if(mode.indexOf("L:")===0){var LL=lessonById(mode.slice(2));items=shuffle(LL.pool()).slice(0,6).map(wrapAny);if(!items.length){toast("Sem itens nesta aula");return}}
+  else if(mode==="va")items=pick(official().va,5).map(wrapVA);
+  else if(mode==="aa")items=pick(official().aa,5).map(wrapAA);
+  else if(mode==="sim")items=shuffle(official().va).slice(0,10).map(wrapVA).concat(shuffle(official().aa).slice(0,12).map(wrapAA));
+  else if(mode==="rev"){var w=shuffle(weak()).slice(0,8);if(!w.length){toast("Ainda não há erros para revisar");return}items=w.map(wrapAny)}
+  else if(mode==="mine"){var c=buildCustom();if(!c.length){toast("Cole seus itens na aba Meus itens");return}items=shuffle(c).slice(0,8).map(wrapAny)}
+  (function(){var seen={};items=items.filter(function(x){var k=normQ(x.d);if(seen[k])return false;seen[k]=1;return true})})();
+  S.sess={mode:mode,items:items,i:0,step:"ask",draft:"",ans:[],res:[],busy:false,note:"",batch:false,tok:1,played:0,rate:null,live:store.simLive!==false};
+  S.view="session";render();window.scrollTo(0,0);
+}
+function nextItem(){
+  var s=S.sess;s.i++;s.step="ask";s.draft="";s.note="";s.tok++;s.heard="";s.an=null;s.micErr="";s.reps=0;
+  if(s.i>=s.items.length)finish();
+  render();window.scrollTo(0,0);
+}
+function finish(){
+  var s=S.sess;
+  if(s.mode==="sim"){
+    s.items.forEach(function(it,i){
+      if(s.res[i])return;
+      var a=s.ans[i];
+      if(!a){s.res[i]={level:"refazer",fixed:falaAnswer(it),ans:"",local:true};record(it.d.id,false);return}
+      var ok=it.k==="aa"?matchAA(it.d,a):localVA(it.d,a).ok;
+      s.res[i]={level:ok?"boa":"quase",fixed:falaAnswer(it),ans:a,local:true};record(it.d.id,ok);
+    });
+  }
+  if(s.mode.indexOf("L:")===0){store.les[s.mode.slice(2)]=Date.now();save()}
+  S.view="summary";
+}
+function applyAI(r,ai,d,a){
+  r.level=lvl(ai.nivel);r.fixed=ai.corrigida||(d.nl!==undefined?fill(d.m):fullAA(d))||a;r.why=ai.porque||"";r.tip=ai.dica||"";r.ai=true;
+}
+async function checkVA(skip){
+  var s=S.sess,it=cur(),d=it.d,a=s.draft.trim();
+  if(!skip&&!a){toast("Escreva ou dite algo primeiro");return}
+  if(s.mode==="sim"){s.ans[s.i]=skip?"":a;nextItem();return}
+  s.busy=true;s.note="";render();
+  var loc=skip?null:localVA(d,a),ai=null,r={ans:a,loc:loc,skip:!!skip};
+  if(!skip){
+    var smp=await getSample();
+    if(smp){try{ai=await askVA(smp,d,a)}catch(e){s.note=e&&e.code==="not_granted"?"O Claude não está liberado nesta página. Mostrei só a checagem simples.":"A correção do Claude não respondeu agora. Mostrei só a checagem simples."}}
+    else s.note="A correção do Claude não está disponível aqui. Mostrei só a checagem simples.";
+  }
+  if(skip){r.level="refazer";r.fixed=fill(d.m);r.why="Sem problema. Ouça a resposta-modelo e repita em voz alta."}
+  else if(ai)applyAI(r,ai,d,a);
+  else{r.level=loc.ok?"boa":"quase";r.fixed=loc.ok?a:(fill(d.m)||a)}
+  s.res[s.i]=r;record(d.id,r.level==="boa");
+  s.busy=false;s.step="res";render();
+}
+async function checkAA(skip){
+  var s=S.sess,d=cur().d,a=s.draft.trim();
+  if(!skip&&!a){toast("Escreva ou dite o final da frase");return}
+  if(s.mode==="sim"){s.ans[s.i]=skip?"":a;nextItem();return}
+  var r={ans:a,skip:!!skip};s.res[s.i]=r;s.note="";
+  if(skip){r.level="refazer";r.fixed=fullAA(d)||"";r.why="Sem problema. Ouça a frase completa e repita em voz alta.";record(d.id,false);s.step="res";render();return}
+  if(matchAA(d,a)){r.level="boa";r.fixed=fullAA(d);r.quick=true;record(d.id,true);s.step="res";render();return}
+  s.busy=true;render();
+  var smp=await getSample(),ai=null;
+  if(smp){try{ai=await askAA(smp,d,a)}catch(e){s.note=e&&e.code==="not_granted"?"O Claude não está liberado nesta página.":"A correção do Claude não respondeu agora."}}
+  else s.note="A correção do Claude não está disponível aqui.";
+  if(ai){applyAI(r,ai,d,a);record(d.id,r.level==="boa")}
+  else{r.pending=true;r.fixed=fullAA(d)||((d.c?d.c+" ":"")+d.s+" "+a+".")}
+  s.busy=false;s.step="res";render();
+}
+function selfGrade(ok){
+  var s=S.sess,r=s.res[s.i],d=cur().d;
+  r.pending=false;r.level=ok?"boa":"refazer";record(d.id,ok);render();
+}
+async function batchCorrect(){
+  var s=S.sess,smp=await getSample();
+  if(!smp){toast("O Claude não está disponível aqui");return}
+  var idx=[],pairs=[];
+  s.items.forEach(function(it,i){
+    if((s.res[i]&&!s.res[i].local)||!s.ans[i])return;
+    idx.push(i);pairs.push({k:it.k,q:it.k==="va"?it.d.nl:((it.d.c?it.d.c+" ":"")+it.d.s+" …"),a:s.ans[i]});
+  });
+  if(!pairs.length){s.batch=true;render();return}
+  s.busy=true;render();
+  try{
+    var out=await askBatch(smp,pairs);
+    idx.forEach(function(i,n){
+      var o=out[n]||{},it=s.items[i],lv=lvl(o.nivel);
+      s.res[i]={level:lv,fixed:o.corrigida||(it.k==="va"?fill(it.d.m):fullAA(it.d)),why:o.porque||"",ans:s.ans[i]};
+      record(it.d.id,lv==="boa");
+    });
+    s.batch=true;
+  }catch(e){toast("O Claude não respondeu agora")}
+  s.busy=false;render();
+}
+
+/* ---------- views ---------- */
+var PRON='Pronúncia vale metade dos pontos. Este app corrige o conteúdo. Para a pronúncia, grave no oefenexamen do DUO (Starten, Stoppen, Luisteren) e ouça de volta.';
+function headerHTML(){return '<header class="sign"><div class="plat">A1</div><div><h1>Spreken</h1><p>Exame de integração · parte de fala</p></div></header>'}
+function tabsHTML(){
+  var t=[["home","Início"],["lessons","Aulas"],["learn","Aprender"],["me","Meus"]];
+  return '<nav class="tabs" aria-label="Seções">'+t.map(function(x){return '<button data-act="tab" data-v="'+x[0]+'"'+((S.view===x[0]||(x[0]==="lessons"&&S.view==="lesson"))?' aria-current="page"':'')+'>'+x[1]+'</button>'}).join("")+'</nav>';
+}
+function planHTML(){
+  var L=nextLesson();
+  return '<div class="card plan"><span class="lab">Plano de hoje</span><p><b>1. Aula:</b> '+esc(L.t)+' ('+L.min+' min)</p><p><b>2. Treino de fala</b> (uns 10 min)</p><button class="btn pri" data-act="lesson" data-id="'+L.id+'">Começar pela aula</button></div>';
+}
+function weekHTML(td){
+  var n=["D","S","T","Q","Q","S","S"],o="";
+  for(var i=6;i>=0;i--){var x=new Date();x.setDate(x.getDate()-i);var c=store.days[dkey(x)]||0;o+='<span'+(c>=10?' class="on"':'')+'>'+n[x.getDay()]+(c>=10?' ✓':'')+'</span>'}
+  return '<div><div class="wk" aria-label="Últimos 7 dias">'+o+'</div><p class="stat" style="margin-top:6px">'+(td>=10?'Meta de hoje feita ✓':'Meta de hoje: 10 itens. Faltam '+(10-td)+'.')+'</p></div>';
+}
+function homeHTML(){
+  var d=daysLeft(),n=weak().length,td=todayCount(),st=streak(),late=new Date().getHours()>=22,nc=(store.custom||[]).length,due=dueList().length;
+  var lead=d>0?'Faltam <b>'+d+' dias</b> para 10 de novembro. Dez minutos por dia já fazem diferença.':d===0?'A prova é hoje. Fale devagar e com frases completas.':'Vamos manter o treino.';
+  return '<p class="lead">'+lead+'</p>'
+  +(late?'<p class="note">Já está tarde. Faça uma sessão curta e deixe o resto para amanhã. Dormir ajuda a memória.</p>':'')
+  +planHTML()
+  +'<div class="spd"><span class="lab">Velocidade do áudio</span>'+[[0.55,"Bem devagar"],[0.7,"Devagar"],[0.9,"Normal"]].map(function(x){return '<button class="btn sm'+(store.rate===x[0]?' sel':'')+'" data-act="speed" data-r="'+x[0]+'">'+x[1]+'</button>'}).join("")+'</div>'
+  +'<div class="spd"><span class="lab">Simulado</span><button class="btn sm'+(store.simLive!==false?' sel':'')+'" data-act="simlive" data-v="1">Corrige na hora</button><button class="btn sm'+(store.simLive===false?' sel':'')+'" data-act="simlive" data-v="0">Só no fim, como na prova</button></div>'
+  +weekHTML(td)
+  +'<button class="go" data-act="start" data-m="fala"><span class="gl">Treino de fala</span><span class="gs">'+(due?due+' para revisar hoje + novos':'itens novos')+' · uns 10 minutos · você fala em voz alta</span></button>'
+  +'<div class="two"><button class="tile" data-act="start" data-m="va"><b>Perguntas oficiais</b><span>Vraag-Antwoord · 78 no banco</span></button><button class="tile" data-act="start" data-m="aa"><b>Frases oficiais</b><span>Aanvulzinnen · 451 no banco</span></button></div>'
+  +'<div class="two"><button class="tile" data-act="start" data-m="sim"><b>Simulado</b><span>10 perguntas + 12 frases, como na prova</span></button><button class="tile" data-act="start" data-m="rev"'+(n?'':' disabled')+'><b>Revisar erros</b><span>'+(n?n+' para repetir':'nenhum ainda')+'</span></button></div>'
+  +(nc?'<button class="tile" data-act="start" data-m="mine"><b>Meus itens</b><span>'+nc+' itens que você colou</span></button>':'')
+  +'<p class="stat">Hoje: '+td+' itens · Sequência: '+st+' dia'+(st===1?'':'s')+'</p>'
+  +'<p class="note">'+PRON+'</p>'
+  +'<details open><summary>Como o treino de fala funciona</summary><div>'
+  +'<p><b>1.</b> O app toca a pergunta. Você toca em <b>Gravar</b> e responde em voz alta, de cabeça.</p>'
+  +'<p><b>2.</b> O app mostra o que entendeu. As palavras que não reconheceu ficam marcadas, com dica de como pronunciar e botão para ouvir.</p>'
+  +'<p><b>3.</b> Você repete a resposta certa 3 vezes e diz com sinceridade como foi. O que errou volta ainda hoje, e depois em 1, 2, 4 e 7 dias.</p>'
+  +'<p class="box"><b>Para o app escutar sua voz</b>, abra-o no Chrome e permita o microfone. Se o microfone estiver bloqueado, o app pede que você use o microfone do teclado, em holandês.</p>'
+  +'<p class="box">Isto é um reconhecedor de voz, não a nota da prova. Se ele entendeu, é um bom sinal. Se não entendeu, treine a palavra marcada.</p></div></details>'
+  +'<details><summary>Como usar a sessão por texto</summary><div>'
+  +'<p><b>1.</b> Toque em «Ouvir» e escute. Na prova a pergunta toca uma vez só.</p>'
+  +'<p><b>2.</b> Responda em voz alta. Nas frases com imagem, diga só o final: uma palavra ou um grupo curto.</p>'
+  +'<p><b>3.</b> Escreva o que disse, ou dite pelo microfone do teclado com o teclado holandês ativado. Toque em Corrigir.</p>'
+  +'<p><b>4.</b> Repita a frase certa em voz alta 3 vezes. É isso que treina a boca.</p>'
+  +'<p class="box">Este app não grava nem escuta sua voz. Ele corrige o texto que você enviar. Se não ouvir o áudio, o aparelho pode não ter voz holandesa instalada.</p></div></details>';
+}
+function soundsHTML(){
+  return '<details><summary>Sons difíceis para quem fala português</summary><div><p class="stat">Aproximações. Ouça o exemplo no botão e imite.</p>'
+  +PATS.map(function(p){return '<div class="li"><div style="min-width:0;flex:1"><p><b>'+esc(p[1])+'</b></p><small>'+esc(p[2])+'</small></div>'+sayBtn(p[3],"")+'</div>'}).join("")+'</div></details>';
+}
+function lessonsHTML(){
+  var nl=nextLesson();
+  return '<p class="lead">Uma aula por vez: leia a regra, repita os exemplos em voz alta e treine falando. Cada aula leva uns 5 minutos.</p>'
+  +LESSONS.map(function(L,i){
+    var a=lessonAcc(L),done=!!store.les[L.id];
+    return '<button class="tile" data-act="lesson" data-id="'+L.id+'" style="width:100%"><b>'+(done?'✓ ':(i+1)+'. ')+esc(L.t)+(L.id===nl.id?' · começar aqui':'')+'</b><span>'+L.min+' min'+(a!==null?' · acertos: '+Math.round(a*100)+'%':'')+'</span></button>';
+  }).join("");
+}
+function lessonHTML(){
+  var L=lessonById(S.les);
+  return '<div><button class="btn sm" data-act="tab" data-v="lessons">‹ Aulas</button></div>'
+  +'<div class="card"><span class="chip">Aula · '+L.min+' min</span><h2 class="nl">'+esc(L.t)+'</h2><p>'+esc(L.why)+'</p></div>'
+  +'<div class="card"><span class="lab">1. A regra</span><p class="box"><b>'+esc(L.rule)+'</b></p>'
+  +'<p class="box">💡 '+esc(L.tip)+'</p></div>'
+  +'<div class="card"><span class="lab">2. Ouça e repita em voz alta (2 vezes cada)</span>'
+  +L.ex.map(function(e){var nlt=e[0].split(" → ")[0];return '<div class="li"><div style="min-width:0;flex:1"><p><b>'+esc(e[0])+'</b></p><small>'+esc(e[1])+'</small></div>'+sayBtn(nlt.replace(/ …/g,""),"")+'</div>'}).join("")+'</div>'
+  +'<div class="card"><span class="lab">Cuidado</span><p class="box" style="background:var(--warn-bg);color:var(--warn)">'+esc(L.trap)+'</p></div>'
+  +'<button class="btn pri" data-act="start" data-m="L:'+L.id+'">3. Treinar falando</button>';
+}
+function learnHTML(){
+  var c=Object.keys(CAT).map(function(k){return '<tr><td>'+esc(CAT[k][0])+'</td><td>'+esc(CAT[k][2])+'</td><td>'+esc(CAT[k][3])+'</td></tr>'}).join("");
+  var q=Object.keys(T).map(function(k){return '<tr><td>'+esc(T[k][0])+'</td><td>'+esc(T[k][1])+'</td><td>'+esc(T[k][2])+'</td></tr>'}).join("");
+  var v=VERBS.map(function(r){return '<tr><td>'+esc(r[0])+'<br><small style="font-weight:400;color:var(--muted)">'+esc(r[1])+'</small></td><td>'+esc(r[2])+'</td><td>'+esc(r[3])+'</td><td>'+esc(r[4])+'</td><td>'+esc(r[5])+'</td></tr>'}).join("");
+  return '<details open><summary>Frases com imagem: a regra da última palavra</summary><div>'
+  +'<p>Você ouve uma situação e o começo de uma frase. Diga só o que falta. Olhe as <b>últimas palavras antes do «…»</b>: elas dizem que tipo de palavra encaixa.</p>'
+  +'<div class="tw"><table><tr><th>Falta</th><th>Olhe para</th><th>Exemplo</th></tr>'+c+'</table></div>'
+  +'<p class="box"><b>De ou het?</b> «een nieuwe» + palavra com DE (broek, tafel). «een nieuw» + palavra com HET (huis). Plural: «nieuwe woorden».</p>'
+  +'<p class="box"><b>Só uma palavra:</b> «water», «melk», «regenen». Respostas curtas que encaixam valem. Respostas que não encaixam na frase não valem, mesmo que sejam holandês correto.</p></div></details>'
+  +'<details><summary>Perguntas: palavra da pergunta, como começar</summary><div><p>Identifique a primeira palavra e você já sabe como abrir a resposta.</p><div class="tw"><table><tr><th>Palavra</th><th>Significa</th><th>Comece assim</th></tr>'+q+'</table></div></div></details>'
+  +'<details><summary>Verbos que mais aparecem</summary><div><p>Na resposta você usa <b>ik</b>. A pergunta usa <b>u</b>, com o verbo terminado em -t. Troque o -t pela forma de ik.</p><div class="tw"><table><tr><th>Verbo</th><th>ik</th><th>u / hij</th><th>wij</th><th>Exemplo</th></tr>'+v+'</table></div></div></details>'
+  +soundsHTML()
+  +'<details><summary>Regras de ouro</summary><div>'
+  +'<p class="box"><b>Verbo em 2º lugar.</b> Ik woon in Utrecht. / \'s Ochtends eet ik brood. Se a frase abre com tempo ou lugar, o verbo continua em 2º e o ik vai depois.</p>'
+  +'<p class="box"><b>Pergunta com u, resposta com ik.</b> Waar woont u? → Ik woon in …</p>'
+  +'<p class="box"><b>Omdat, dat e als jogam o verbo para o fim.</b> Ik drink water, omdat ik dorst <b>heb</b>. Ik hoop dat hij aardig <b>is</b>.</p>'
+  +'<p class="box"><b>Verbo separável: a partícula vai para o fim.</b> Ik sta om zeven uur <b>op</b>. Ik doe mijn jas <b>aan</b>. Ik neem mijn paraplu <b>mee</b>.</p>'
+  +'<p class="box"><b>Com ga / wil / kan / moet, o outro verbo fica no fim.</b> Ik ga graag <b>wandelen</b>. Het gaat zo <b>regenen</b>.</p>'
+  +'<p class="box"><b>Fale algo.</b> Uma resposta curta que encaixa pode valer ponto. Silêncio não vale.</p></div></details>'
+  +'<details><summary>Como a prova é avaliada</summary><div>'
+  +'<p>Segundo um site de preparação (não é a fonte oficial), são 22 itens em 30 minutos: 10 perguntas e 12 frases com imagem, com até 60 segundos por resposta, gravadas no computador.</p>'
+  +'<p>Cada item vale até 1 ponto de conteúdo e 1 de pronúncia. Se o conteúdo for 0, a pronúncia também é 0. Para passar seriam necessários cerca de 34 dos 44 pontos.</p>'
+  +'<p class="box">Confira os números e o modelo de avaliação na fonte oficial (Naar Nederland / DUO) antes da prova.</p></div></details>';
+}
+function meHTML(){
+  var f=[["naam","Seu nome","ex.: Maria"],["stad","Cidade onde mora","ex.: Utrecht"],["land","País de origem","ex.: Brazilië"],["beroep","Profissão em holandês","ex.: leraar, verpleegkundige, kok"],["huisdier","Animal de estimação","ex.: een hond, een kat, geen huisdier"],["hobby","Algo que gosta de fazer (verbo no infinitivo)","ex.: wandelen, koken, fietsen"]];
+  var nc=(store.custom||[]).length;
+  return '<div class="card"><h2 class="nl" style="font-size:22px">Colar meus itens</h2>'
+  +'<p>Cole aqui perguntas e frases do seu material, uma por linha. Linhas que terminam com «…» viram frases para completar. Se quiser, escreva a resposta depois de «|», assim: <b>Waar woont u? | Ik woon in Utrecht.</b> Sem «|», o Claude cria a resposta-modelo (só na página publicada).</p>'
+  +'<label for="cust">Itens (até 400)</label>'
+  +'<textarea id="cust" class="big" spellcheck="false" placeholder="Wat is uw werk?\nIk ga zaterdag kleren kopen in de stad. Ik zoek een nieuwe …">'+esc(customText())+'</textarea>'
+  +'<div class="row"><button class="btn" data-act="savecust">Salvar itens</button><button class="btn" data-act="start" data-m="mine"'+(nc?'':' disabled')+'>Treinar meus itens'+(nc?' ('+nc+')':'')+'</button></div></div>'
+  +'<h2 class="nl" style="font-size:22px">Meus dados</h2>'
+  +'<p class="lead">As respostas-modelo usam estes dados, para você treinar frases que realmente poderia dizer. Fica salvo só neste navegador.</p>'
+  +f.map(function(x){return '<div class="pf"><label for="pf-'+x[0]+'">'+x[1]+'</label><input type="text" id="pf-'+x[0]+'" data-pf="'+x[0]+'" value="'+esc(store.profile[x[0]]||"")+'" placeholder="'+esc(PD[x[0]])+'" autocomplete="off"><small>'+x[2]+'</small></div>'}).join("");
+}
+function shead(){
+  var s=S.sess,n=s.items.length,pct=Math.round(s.i/n*100);
+  var nums=s.mode==="sim"?'<div class="nums" aria-hidden="true">'+s.items.map(function(_,i){return '<span class="n'+(i<s.i?' d':'')+(i===s.i?' c':'')+'">'+(i+1)+'</span>'}).join("")+'</div>':'';
+  return '<div class="shead"><button class="btn sm" data-act="exit">‹ Sair</button><div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="'+n+'" aria-valuenow="'+s.i+'"><i style="width:'+pct+'%"></i></div><span class="stat">'+(s.i+1)+'/'+n+'</span></div>'+nums
+  +(s.mode==="sim"?'<p class="note">'+(s.live?'Simulado com correção na hora. Você pode regravar antes de seguir.':'Simulado: sem correção até o fim, como na prova.')+'</p>':'');
+}
+function sayBtn(t,label){return '<button class="btn sm" data-act="say" data-say="'+esc(t)+'">🔊 '+(label===undefined?"Ouvir":label)+'</button>'}
+function repsHTML(txt){return '<div><p><b>'+txt+'</b></p><div class="reps" style="margin-top:8px"><button class="dot" data-act="rep" aria-label="Repeti 1 vez">1</button><button class="dot" data-act="rep" aria-label="Repeti 2 vezes">2</button><button class="dot" data-act="rep" aria-label="Repeti 3 vezes">3</button><span id="repmsg" class="stat"></span></div></div>'}
+function falaAnswer(it){
+  var d=it.d,mm=store.mm[d.id];
+  if(!d.m&&mm&&mm.m)return it.k==="va"?mm.m:((d.c?d.c+" ":"")+d.s+" "+mm.m+(/[.!?]$/.test(mm.m)?"":"."));
+  return it.k==="va"?fill(d.m):fullAA(d);
+}
+var askedM={};
+async function ensureModel(it){
+  var d=it.d;if(!((d.custom&&!d.m)||(d.official&&!d.pt))||store.mm[d.id]||askedM[d.id])return;
+  askedM[d.id]=1;
+  var smp=await getSample();if(!smp)return;
+  var q=it.k==="va"?d.nl:((d.c?d.c+" ":"")+d.s+" …");
+  var pr='Você ajuda uma aluna brasileira de holandês nível A1 (exame de integração). Dados dela: mora em '+P("stad")+', vem de '+P("land")+', profissão '+P("beroep")+'. Item ('+(it.k==="va"?"pergunta":"frase para completar, ela diz só o final")+'): "'+q+'". Responda SOMENTE com JSON válido: {"resposta":"resposta simples e correta em holandês A1 ('+(it.k==="va"?'frase completa começando com Ik …':'só as palavras que faltam, sem repetir a frase')+')","traducao":"tradução do item em português do Brasil, uma linha"}';
+  try{
+    var r=await smp(pr,{modelTier:"quick",cache:true}),o=parseJSON(r.text);
+    if(o&&o.resposta){store.mm[d.id]={m:String(o.resposta),pt:String(o.traducao||"")};save();
+      var s=S.sess;if(s&&cur()&&cur().d.id===d.id){if(s.heard)s.an=analyze(cur(),s.heard);render()}}
+  }catch(e){}
+}
+function ringHTML(){return '<div class="tm" aria-hidden="true"><i></i></div><p class="stat">Na prova você tem até 60 segundos por resposta.</p>'}
+
+/* ---------- escuta (reconhecimento de voz do navegador) ---------- */
+var SR=window.SpeechRecognition||window.webkitSpeechRecognition,rec=null;
+var MICERR={
+  "not-allowed":"O microfone foi bloqueado. Toque no cadeado/ícone de microfone ao lado do endereço, escolha Permitir e tente de novo. Se o arquivo está no seu computador, o Chrome pergunta toda vez: para perguntar uma vez só, abra o app por um endereço https (veja o guia que enviei).",
+  "service-not-allowed":"O reconhecimento de voz está bloqueado neste modo de abertura. Abra o app por um endereço https (Netlify Drop) ou use o microfone do teclado.",
+  "no-speech":"Não ouvi nada. Chegue mais perto do microfone e tente de novo.",
+  "audio-capture":"Não achei um microfone neste aparelho.",
+  "network":"Sem conexão para o reconhecimento de voz. Veja a internet.",
+  "nosr":"Este navegador não tem reconhecimento de voz. Use o Chrome, ou o microfone do teclado.",
+  "empty":"Não entendi nada. Fale mais devagar e tente de novo."
+};
+function micOK(){return !!SR}
+function startListen(){
+  var s=S.sess;
+  try{speechSynthesis.cancel()}catch(e){}
+  if(!SR){S.micBad=true;s.micErr="nosr";render();return}
+  var done=false,text="",confs=[];
+  try{
+    rec=new SR();rec.lang="nl-NL";rec.interimResults=true;rec.maxAlternatives=1;rec.continuous=false;
+    rec.onresult=function(e){
+      text="";confs=[];
+      for(var i=0;i<e.results.length;i++){text+=e.results[i][0].transcript+" ";if(e.results[i].isFinal&&e.results[i][0].confidence)confs.push(e.results[i][0].confidence)}
+      var el=document.getElementById("live");if(el)el.textContent=text.trim()||"…";
+    };
+    rec.onerror=function(e){
+      if(done)return;done=true;s.listen=false;
+      if(e.error==="not-allowed"||e.error==="service-not-allowed"||e.error==="audio-capture")S.micBad=true;
+      s.micErr=e.error;S.lastErr=e.error;render();
+    };
+    rec.onend=function(){
+      if(done)return;done=true;s.listen=false;
+      text=text.trim();
+      if(!text){s.micErr="empty";render();return}
+      finishListen(text,confs.length?confs.reduce(function(a,b){return a+b},0)/confs.length:null);
+    };
+    s.listen=true;s.micErr="";rec.start();render();
+  }catch(e){s.listen=false;S.micBad=true;s.micErr="not-allowed";render()}
+}
+function stopListen(){try{rec&&rec.stop()}catch(e){}}
+function finishListen(text,conf){
+  var s=S.sess,it=cur(),tk=s.tok;S.micBad=false;S.lastErr="";
+  if(s.mode==="sim"&&!s.live){s.ans[s.i]=text;nextItem();return}
+  s.heard=text;s.conf=conf;s.step="res";s.dk=false;s.reps=0;s.ai=null;s.aiNote="";
+  s.an=analyze(it,text);render();window.scrollTo(0,0);
+  if(it.k==="va"){
+    getSample().then(function(smp){
+      if(!smp||!S.sess||S.sess.tok!==tk)return;
+      S.sess.aiNote="O Claude está conferindo o conteúdo…";render();
+      return askVA(smp,it.d,text).then(function(ai){if(S.sess&&S.sess.tok===tk){S.sess.ai=ai;S.sess.aiNote="";render()}});
+    }).catch(function(){if(S.sess&&S.sess.tok===tk){S.sess.aiNote="";render()}});
+  }
+}
+function offTopic(it,an){
+  if(!an||an.nomodel||an.exact)return false;
+  if(it.k==="aa"&&it.d.official)return false;
+  return !an.ok||an.cover<=0.5;
+}
+function analyze(it,heard){
+  var d=it.d,H=norm(heard).split(" ").filter(Boolean),ok,target;
+  var mm=store.mm[d.id];
+  if(it.k==="aa"){target=d.m||(mm&&mm.m)||"";ok=matchAA(d,heard)}
+  else{target=fill(d.m)||(mm&&mm.m)||"";ok=localVA(d,heard).ok}
+  var Tw=norm(target).split(" ").filter(Boolean),n=Tw.length,m=H.length,L=[],i,j;
+  if(!n)return{words:[],ok:true,all:false,nomodel:true,heard:H};
+  for(i=0;i<=n;i++){L[i]=[];for(j=0;j<=m;j++)L[i][j]=0}
+  for(i=n-1;i>=0;i--)for(j=m-1;j>=0;j--)L[i][j]=Tw[i]===H[j]?L[i+1][j+1]+1:Math.max(L[i+1][j],L[i][j+1]);
+  var hit=[],a=0,b=0;
+  while(a<n&&b<m){if(Tw[a]===H[b]){hit[a]=true;a++;b++}else if(L[a+1][b]>=L[a][b+1])a++;else b++}
+  var words=Tw.map(function(w,k){return{w:w,ok:!!hit[k]}});
+  var all=words.length>0&&words.every(function(x){return x.ok});
+  var cover=words.filter(function(x){return x.ok}).length/words.length;
+  if(ok&&!all)words=H.map(function(w){return{w:w,ok:true}});
+  return{words:words,ok:ok,all:all||ok,heard:H,cover:cover,exact:all};
+}
+var PATS=[
+  [/ui/,"ui","Lábios arredondados, como dizer «ô» e «i» juntos, parecido com «äu». Ex.: huis","huis"],
+  [/eu/,"eu","Boca em «u», língua em «ê»: um «ö» longo. Não é «éu». Ex.: nieuw","nieuw"],
+  [/ij|ei/,"ij / ei","Como «é-i» aberto, mais aberto que o «ei» de «lei». Ex.: mijn, tijd","tijd"],
+  [/au|ou/,"au / ou","Soa como «au» com a boca mais redonda. Ex.: nou, blauw","blauw"],
+  [/g|ch/,"g / ch","Som raspado na garganta, como o «r» de «rato» bem forte, sem vibrar. Ex.: goed, acht","acht"],
+  [/sch/,"sch","«s» seguido do «ch» raspado. Ex.: school","school"],
+  [/oe/,"oe","Um «u» como em «tu». Ex.: goed, doen","goed"],
+  [/uu/,"uu","Lábios em «u» e língua em «i», como o «ü» do alemão ou francês. Ex.: uur","uur"],
+  [/ie/,"ie","«i» longo, como em «vida». Ex.: niet","niet"],
+  [/aa|ee|oo/,"aa / ee / oo","Vogal longa: segure o som, sem fechar com «i» ou «u». Ex.: naam, geen, boom","geen"],
+  [/^w|\bw/,"w","Entre «v» e «u». Os lábios mal encostam. Não é «ua». Ex.: water","water"],
+  [/^v/,"v","Um «f» mais suave, com a voz. Ex.: vijf","vijf"],
+  [/j/,"j","Como o «i» de «iate». Ex.: ja","ja"],
+  [/ng/,"ng","Nasal, como «ng» de «ring» sem soltar o «g». Ex.: lang","lang"],
+  [/sj/,"sj","Como o «x» de «xícara». Ex.: sjaal","sjaal"],
+  [/en$/,"-en no final","O «e» é fraco e o «n» quase some. «lopen» soa como «lôpe».","lopen"]
+];
+function tipsFor(w){var o=[];PATS.forEach(function(p){if(o.length<2&&p[0].test(w))o.push(p)});return o}
+function falaAskHTML(){
+  var s=S.sess,it=cur(),d=it.d,again=it.again?'<span class="chip" style="background:var(--warn-bg);color:var(--warn)">De novo, você consegue</span> ':'';
+  var body;
+  if(it.k==="va"){
+    var t=T[d.w];
+    body='<div class="kw"><span class="chip">'+esc(t[0])+'</span><span class="ptw">= '+esc(t[1])+'</span></div>'
+    +'<p class="big">🎧 Escute a pergunta</p>'
+    +'<div class="row">'+sayBtn(d.nl,"Ouvir de novo")+'<button class="btn sm" data-act="tog" data-t="txt">Ver o texto</button><button class="btn sm" data-act="tog" data-t="hint">Dica</button></div>'
+    +'<p class="box" id="txt" hidden><b>'+esc(d.nl)+'</b></p>'
+    +'<p class="box" id="hint" hidden>'+(d.frame?'Comece assim: <b>'+esc(d.frame)+'</b><br>':'')+esc(t[1])+' → '+esc(t[2])+'</p>';
+  }else{
+    var cat=CAT[d.cat];
+    body='<span class="chip">Complete a frase</span><div class="pic" aria-hidden="true">'+esc(d.p)+'</div>'
+    +(d.c?'<p class="ctx">'+esc(d.c)+'</p>':'')+'<p class="blank">'+esc(d.s)+' <u>&nbsp;</u></p>'
+    +'<div class="row">'+sayBtn((d.c?d.c+" ":"")+d.s,"Ouvir de novo")+'<button class="btn sm" data-act="tog" data-t="hint">Dica: o que falta?</button>'+(d.tp?'<button class="btn sm" data-act="tog" data-t="trq">Ver em português</button>':'')+'</div>'
+    +(d.tp?'<p class="box" id="trq" hidden>🇧🇷 '+esc(d.tp)+'</p>':'')
+    +'<p class="box" id="hint" hidden>'+(cat?'<b>'+esc(cat[0])+'.</b> '+esc(cat[2]):'Olhe as palavras antes do «…».')+'</p>';
+  }
+  var instr=it.k==="va"?'Responda com uma frase completa, de cabeça.':'Diga só o final da frase: uma palavra ou um grupo curto.';
+  var ec=s.micErr||(S.micBad?S.lastErr:'');var err=ec&&MICERR[ec]?'<p class="note">'+esc(MICERR[ec])+' (código: '+esc(ec)+')</p>':'';
+  var act;
+  if(s.listen){
+    act='<div class="card speak"><p class="big">🎙️ Estou escutando</p><p>Fale agora. '+instr+'</p><p class="live" id="live" aria-live="polite">…</p>'+ringHTML()+'</div>'
+    +'<div class="micwrap"><button class="mic on" data-act="stoplisten" aria-label="Terminei de falar">⏹</button><p class="stat">Toque quando terminar</p></div>';
+  }else if(micOK()){
+    act='<div class="card speak"><p class="big">🎤 Agora fale em voz alta</p><p>'+instr+' O app vai escutar e mostrar o que entendeu.</p>'+ringHTML()+'</div>'+err
+    +'<div class="micwrap"><button class="mic" data-act="listen" aria-label="Gravar minha resposta">🎤</button><p><b>Toque e fale</b></p></div>'
+    +'<details class="box"><summary>Não funciona? Usar o teclado</summary><p>Toque no microfone do teclado, fale em holandês e toque em «Conferir».</p><textarea id="ans" rows="2" autocomplete="off" spellcheck="false">'+esc(s.draft)+'</textarea><button class="btn pri" data-act="dictcheck">Conferir o que o teclado entendeu</button></details>';
+  }else{
+    act='<div class="card speak"><p class="big">🎤 Fale com o teclado</p><p>'+instr+'</p>'
+    +'<p class="box">Toque no <b>microfone do teclado</b> e fale em holandês (deixe o idioma do ditado em «Nederlands»). Depois toque em «Conferir».</p>'
+    +'<textarea id="ans" rows="2" placeholder="…" autocomplete="off" spellcheck="false">'+esc(s.draft)+'</textarea>'+ringHTML()+'</div>'+err
+    +'<button class="btn pri" data-act="dictcheck">Conferir o que o teclado entendeu</button>';
+  }
+  return shead()+'<div class="card">'+again+body+'</div>'+act
+  +(s.listen?'':'<button class="btn" data-act="spoke" id="spoke">Falei em voz alta, sem gravar</button><button class="btn" data-act="nodk">Não sei dizer</button>');
+}
+function falaRevHTML(){
+  var s=S.sess,it=cur(),d=it.d,ans=falaAnswer(it),cat=CAT[d.cat],an=s.an&&s.heard?s.an:null;
+  var others=it.k==="aa"?(d.a||[]).filter(function(x){return x!=="#num"&&x!==d.m}).join(", "):"";
+  var tipItem=it.k==="va"?(T[d.w][1]+' → '+T[d.w][2]):(d.g||(cat?cat[2]:""));
+  var tip=TIPS[(s.i+s.tok)%TIPS.length];
+  var reps=s.reps||0,ok=reps>=3,sug="";
+  var blocked=offTopic(it,an);
+  var h=shead()+'<div class="card">';
+  if(an){
+    var bad=an.words.filter(function(x){return!x.ok});
+    var pct=s.conf!=null?Math.round(s.conf*100):null;
+    h+='<span class="lab">O app entendeu</span><p class="nl">«'+esc(s.heard)+'»</p>'
+    +(pct!=null?'<div class="clar"><span>Clareza</span><div class="bar"><i style="width:'+pct+'%"></i></div><b>'+pct+'%</b></div><p class="stat">Clareza: quanto o app teve certeza do que ouviu. É uma pista, não a nota.</p>':'')
+    +'<div class="words">'+an.words.map(function(x){return '<span class="w '+(x.ok?'ok':'bad')+'">'+(x.ok?'✓ ':'✗ ')+esc(x.w)+'</span>'}).join("")+'</div>';
+    var co=coach(it,s.heard);
+    if(co.length)h+='<div class="box"><b>👩‍🏫 Dica da professora</b><br>'+co.map(esc).join('<br>')+'</div>';
+    if(an.nomodel){h+='<p class="note">'+(d.custom?'Este item é seu e ainda não tem resposta-modelo. Se o Claude estiver disponível aqui, ela aparece em instantes.':'Sem resposta-modelo.')+'</p>';sug=-1}
+    else if(an.all){h+='<p class="lv lv-boa">O app entendeu tudo</p>'; sug=(pct==null||pct>=60)?2:1}
+    else{
+      sug=bad.length>=an.words.length?0:1;
+      var softAA=it.k==="aa"&&d.official;
+      if(softAA){sug=1;h+='<p class="lv lv-quase">Diferente do modelo</p><p class="note">Outras palavras também podem servir, se encaixarem na frase e no tipo de palavra. Compare com o modelo abaixo e decida.</p>'}
+      else h+='<p class="lv lv-quase">'+(an.ok?'Conteúdo certo, confira a pronúncia':(bad.length>3?'A resposta ficou diferente da modelo':'Palavras para treinar'))+'</p>';
+      (!softAA&&(an.ok||bad.length<=3)?bad.slice(0,3):[]).forEach(function(x){
+        var t=tipsFor(x.w);
+        h+='<div class="wfix"><div class="row"><b class="nl" style="font-size:22px">'+esc(x.w)+'</b>'+sayBtn(x.w,"Ouvir")+'</div>'
+        +t.map(function(p){return '<p class="box"><b>'+esc(p[1])+':</b> '+esc(p[2])+'</p>'}).join("")+'</div>';
+      });
+    }
+    if(it.k==="va"&&!an.ok&&!co.length)h+='<p class="note">Sua resposta pode ser diferente da modelo e estar certa. O que importa é responder à pergunta com uma frase compreensível.</p>';
+    if(s.ai)h+='<div class="box">'+(s.ai.corrigida?'<b>Claude:</b> '+esc(s.ai.corrigida)+'<br>':'')+(s.ai.porque?esc(s.ai.porque):'')+'</div>';
+    if(s.aiNote)h+='<p class="stat">'+esc(s.aiNote)+'</p>';
+  }else if(s.dk){h+='<p class="note">Sem problema. Agora escute e diga junto.</p>'}
+  else{h+='<p class="note">Você respondeu sem gravar. Compare com a resposta abaixo.</p>'}
+  h+='<div class="fix"><span class="lab">Resposta certa</span><p class="nl">'+esc(ans)+'</p>'+sayBtn(ans,"Ouvir a resposta")+'</div>'
+  +((d.pt||(store.mm[d.id]&&store.mm[d.id].pt))?'<p class="yours">Significa: '+esc(d.pt||store.mm[d.id].pt)+'</p>':'')
+  +(others?'<p class="box">Também servem: '+esc(others)+'</p>':'')
+  +(tipItem?'<p class="box">🧠 <b>Para lembrar:</b> '+esc(tipItem)+'</p>':'')
+  +'<p class="box">💡 '+esc(tip)+'</p>'
+  +(micOK()?'<button class="btn" data-act="again">🎤 Tentar de novo e comparar</button>':'')
+  +'<div><p><b>Passo 1: diga a resposta certa em voz alta, 3 vezes.</b></p><div class="reps" style="margin-top:8px">'
+  +[1,2,3].map(function(n){return '<button class="dot'+(reps>=n?' done':'')+'" data-act="rep" aria-label="Repeti '+n+' vezes">'+n+'</button>'}).join("")
+  +'<span id="repmsg" class="stat">'+(ok?"Isso! A boca aprende repetindo.":reps+" de 3")+'</span></div></div>'
+  +'</div>'
+  +'<div class="card"><p><b>Passo 2: como foi, sendo sincera?</b></p>'
+  +'<div class="rate" id="rate">'
+  +['Errei','Quase','Falei certo'].map(function(t,k){return '<button class="btn'+(sug===k&&an?' sug':'')+'" data-act="rate" data-lv="'+k+'"'+((ok&&!(blocked&&k===2))?'':' disabled')+'>'+t+'</button>'}).join("")+'</div>'
+  +'<p class="stat" id="ratehint">'+(ok?(blocked?'«Falei certo» está bloqueado: o que o app entendeu está bem diferente da resposta certa (palavras importantes faltaram). Escolha «Quase» ou «Errei». Se você tem certeza de que falou certo, toque em «Tentar de novo e comparar».':(an?'O app sugere a opção destacada. A decisão é sua.':'')):'Faça as 3 repetições para liberar.')+'</p></div>';
+  return h;
+}
+function vaAskHTML(){
+  var s=S.sess,d=cur().d,t=T[d.w];
+  return shead()
+  +'<div class="card"><div class="kw"><span class="chip">'+esc(t[0])+'</span><span class="ptw">= '+esc(t[1])+'</span></div><h2 class="nl">'+esc(d.nl)+'</h2>'
+  +'<div class="row">'+sayBtn(d.nl)+(d.pt?'<button class="btn sm" data-act="tog" data-t="tr">Tradução</button>':'')+'<button class="btn sm" data-act="tog" data-t="hint">Dica</button></div>'
+  +'<p class="box" id="tr" hidden>'+esc(d.pt)+'</p>'
+  +'<p class="box" id="hint" hidden>'+(d.frame?'Comece assim: <b>'+esc(d.frame)+'</b><br>':'')+esc(t[1])+' → '+esc(t[2])+'</p></div>'
+  +'<label for="ans">Diga em voz alta. Depois escreva ou dite aqui.</label>'
+  +'<textarea id="ans" placeholder="Ik …" autocomplete="off" autocapitalize="sentences" spellcheck="false">'+esc(s.draft)+'</textarea>'
+  +'<button class="btn pri" data-act="check"'+(s.busy?' disabled':'')+'>'+(s.busy?'Corrigindo…':(s.mode==="sim"?'Próxima':'Corrigir'))+'</button>'
+  +'<button class="btn" data-act="skip"'+(s.busy?' disabled':'')+'>Não sei dizer</button>';
+}
+function vaResHTML(){
+  var s=S.sess,d=cur().d,r=s.res[s.i];
+  var lab={boa:"Muito bem!",quase:"Quase lá",refazer:"Vamos de novo, sem pressão"}[r.level];
+  var chk=(!r.ai&&r.loc)?'<div class="box">'+r.loc.checks.map(function(c){return (c.ok?'✓ ':'• ')+esc(c.t)}).join('<br>')+'</div>':'';
+  return shead()
+  +'<div class="card"><span class="lv lv-'+r.level+'">'+lab+'</span>'
+  +(r.ans?'<p class="yours">Você disse: «'+esc(r.ans)+'»</p>':'')
+  +'<div class="fix"><span class="lab">'+(r.level==="boa"&&r.ai?'Perfeito assim':'Fica assim')+'</span><p class="nl">'+esc(r.fixed)+'</p>'+sayBtn(r.fixed,"Ouvir a frase")+'</div>'
+  +(r.why?'<p>'+esc(r.why)+'</p>':'')
+  +(r.tip?'<p class="box">💡 '+esc(r.tip)+'</p>':'')
+  +chk
+  +(s.note?'<p class="note">'+esc(s.note)+'</p>':'')
+  +(d.m?'<p class="box"><span class="lab">Resposta-modelo</span><br>'+esc(fill(d.m))+'</p>':'')
+  +repsHTML('Agora diga a frase certa em voz alta, 3 vezes.')+'</div>'
+  +'<button class="btn pri" data-act="next">'+(s.i+1>=s.items.length?'Ver resumo':'Próxima')+'</button>';
+}
+function aaAskHTML(){
+  var s=S.sess,d=cur().d,cat=CAT[d.cat];
+  return shead()
+  +'<div class="card"><span class="chip">Complete a frase</span><div class="pic" aria-hidden="true">'+esc(d.p)+'</div>'
+  +(d.c?'<p class="ctx">'+esc(d.c)+'</p>':'')+'<p class="blank">'+esc(d.s)+' <u>&nbsp;</u></p>'
+  +'<div class="row">'+sayBtn((d.c?d.c+" ":"")+d.s)+(d.pt?'<button class="btn sm" data-act="tog" data-t="tr">Tradução</button>':'')+'<button class="btn sm" data-act="tog" data-t="hint">Dica: o que falta?</button></div>'
+  +'<p class="box" id="tr" hidden>'+esc(d.pt?d.pt.split(". ")[0]+".":"")+'</p>'
+  +'<p class="box" id="hint" hidden>'+(cat?'<b>'+esc(cat[0])+'.</b> '+esc(cat[1])+'<br>'+esc(cat[2]):'Olhe as últimas palavras antes do «…»: elas dizem que tipo de palavra falta.')+'</p></div>'
+  +'<label for="ans">Diga só o final da frase em voz alta (uma palavra ou grupo curto). Depois escreva ou dite.</label>'
+  +'<textarea id="ans" rows="2" placeholder="…" autocomplete="off" spellcheck="false">'+esc(s.draft)+'</textarea>'
+  +'<button class="btn pri" data-act="check"'+(s.busy?' disabled':'')+'>'+(s.busy?'Conferindo…':(s.mode==="sim"?'Próxima':'Conferir'))+'</button>'
+  +'<button class="btn" data-act="skip"'+(s.busy?' disabled':'')+'>Não sei dizer</button>';
+}
+function aaResHTML(){
+  var s=S.sess,d=cur().d,r=s.res[s.i],cat=CAT[d.cat];
+  var lab=r.pending?"Confira você mesma":{boa:"Muito bem!",quase:"Quase lá",refazer:r.skip?"Sem problema":"Vamos de novo, sem pressão"}[r.level];
+  var cls=r.pending?"pend":r.level;
+  var others=(d.a||[]).filter(function(x){return x!=="#num"}).join(", ");
+  return shead()
+  +'<div class="card"><span class="lv lv-'+cls+'">'+lab+'</span>'
+  +'<div class="pic" aria-hidden="true">'+esc(d.p)+'</div>'
+  +(r.ans?'<p class="yours">Você disse: «'+esc(r.ans)+'»</p>':'')
+  +(r.fixed?'<div class="fix"><span class="lab">Frase completa</span><p class="nl">'+esc(r.fixed)+'</p>'+sayBtn(r.fixed,"Ouvir a frase")+'</div>':'')
+  +(r.why?'<p>'+esc(r.why)+'</p>':'')
+  +(r.tip?'<p class="box">💡 '+esc(r.tip)+'</p>':'')
+  +(r.pending?'<p class="box"><b>Sem o Claude aqui, você decide.</b> Sua resposta encaixa na frase e no tipo de palavra? Compare com os exemplos abaixo.</p><div class="row"><button class="btn" data-act="selfok">Encaixa, contar como certo</button><button class="btn" data-act="selfno">Não encaixa</button></div>':'')
+  +(s.note&&r.pending?'<p class="note">'+esc(s.note)+'</p>':'')
+  +(cat?'<p class="box"><b>Regra da última palavra · '+esc(cat[0])+'.</b> '+esc(cat[2])+'</p>':'')
+  +(d.g?'<p class="box">'+esc(d.g)+'</p>':'')
+  +(others?'<p class="box">Também servem: '+esc(others)+'</p>':(d.a&&d.a.length?'<p class="box">Qualquer número de dezenas serve: vijftig, zestig, zeventig…</p>':''))
+  +(d.pt?'<p class="yours">'+esc(d.pt)+'</p>':'')
+  +repsHTML(r.fixed?'Diga a frase completa em voz alta, 3 vezes.':'Diga o final certo em voz alta, 3 vezes.')+'</div>'
+  +'<button class="btn pri" data-act="next">'+(s.i+1>=s.items.length?'Ver resumo':'Próxima')+'</button>';
+}
+function summaryHTML(){
+  var s=S.sess,sim=s.mode==="sim"&&!s.live,good=0,total=0;
+  var rows=s.items.map(function(it,i){
+    var r=s.res[i],d=it.d,lv=r?r.level:"",q=it.k==="va"?d.nl:((d.c?d.c+" ":"")+d.s+" …");
+    var ans=(r&&r.ans)||s.ans[i]||"",line=(r&&r.fixed)||falaAnswer(it);
+    if(r){total++;if(r.level==="boa")good++}
+    return '<div class="li"><span class="sd '+lv+'"></span><div style="min-width:0;flex:1"><p><b>'+esc(q)+'</b></p>'
+    +((sim||ans)?'<small>Você: «'+esc(ans||"sem resposta")+'»</small>':'')
+    +'<small>Resposta: '+esc(line)+'</small>'+(r&&r.why?'<small>'+esc(r.why)+'</small>':'')+'</div>'+sayBtn(line,"")+'</div>';
+  }).join("");
+  var msg=sim&&!s.batch?"Esta é só uma conferência rápida, que não sabe julgar respostas abertas. Toque no botão abaixo para o Claude corrigir de verdade.":(total&&good/total>=.8?"Muito bem. Só conta como bom o que o app entendeu certo.":total&&good/total>=.5?"Boa sessão. Repetir é o que fixa.":"Sessão feita. Errar aqui é o treino, e os erros entram na revisão.");
+  var td=todayCount();
+  return '<div class="card"><h2 class="nl">'+(total?(sim?(s.batch?'Conteúdo: ':'Conferência simples: '):'')+good+' de '+total+(sim?'':' bons'):'Sessão concluída')+'</h2><p>'+msg+'</p>'
+  +(sim&&s.batch?'<p class="box">Cada item vale 1 ponto de conteúdo e 1 de pronúncia. Aqui só dá para estimar o conteúdo. A pronúncia treine no oefenexamen do DUO, com Starten, Stoppen e Luisteren.</p>':'')
+  +(td>=15?'<p class="note">Você já treinou bastante hoje. Vale uma pausa, água e descanso.</p>':'')+'</div>'
+  +(sim&&!s.batch?'<button class="btn pri" data-act="batch"'+(s.busy?' disabled':'')+'>'+(s.busy?'Corrigindo…':'Corrigir minhas respostas com o Claude')+'</button>':'')
+  +'<div class="card">'+rows+'</div>'
+  +(s.mode==="sim"?'<button class="btn pri" data-act="start" data-m="sim">Novo simulado</button>':'<button class="btn pri" data-act="start" data-m="'+s.mode+'">Mais 5</button>')
+  +'<button class="btn" data-act="home">Voltar ao início</button>';
+}
+
+function render(){
+  var h;
+  if(S.view==="session"){
+    var s=S.sess,it=cur();
+    if(s.mode==="sim"&&!s.live)h=falaAskHTML();
+    else if(true)h=s.step==="ask"?falaAskHTML():falaRevHTML();
+    else h=it.k==="va"?(s.step==="ask"?vaAskHTML():vaResHTML()):(s.step==="ask"?aaAskHTML():aaResHTML());
+  }else if(S.view==="summary"){h=summaryHTML()}
+  else{h=headerHTML()+tabsHTML()+(S.view==="learn"?learnHTML():S.view==="me"?meHTML():S.view==="lessons"?lessonsHTML():S.view==="lesson"?lessonHTML():homeHTML())}
+  $("#app").innerHTML=h;
+  afterRender();
+}
+function afterRender(){
+  var s=S.sess;
+  if(S.view==="session"&&s&&s.step==="res"&&cur())ensureModel(cur());
+  if(S.view!=="session"||!s||s.step!=="ask")return;
+  var t=s.tok;
+  setTimeout(function(){if(S.sess&&S.sess.tok===t&&S.sess.step==="ask"){var b=document.getElementById("spoke");if(b)b.disabled=false}},3000);
+  if(s.played!==t){s.played=t;var it=cur(),d=it.d;say(it.k==="va"?d.nl:((d.c?d.c+" ":"")+d.s))}
+}
+
+/* ---------- events ---------- */
+var acts={
+  tab:function(b){S.view=b.dataset.v;render();window.scrollTo(0,0)},
+  lesson:function(b){S.les=b.dataset.id;S.view="lesson";render();window.scrollTo(0,0)},
+  start:function(b){startSession(b.dataset.m)},
+  home:function(){S.view="home";render();window.scrollTo(0,0)},
+  exit:function(){S.view="home";render();window.scrollTo(0,0)},
+  say:function(b){say(b.dataset.say)},
+  tog:function(b){var el=document.getElementById(b.dataset.t);if(el)el.hidden=!el.hidden},
+  check:function(){var it=cur();if(it.k==="va")checkVA(false);else checkAA(false)},
+  skip:function(){var it=cur();if(it.k==="va")checkVA(true);else checkAA(true)},
+  next:function(){nextItem()},
+  speed:function(b){store.rate=parseFloat(b.dataset.r);save();say("Waar woont u?");render()},
+  simlive:function(b){store.simLive=b.dataset.v==="1";save();render()},
+  listen:function(){startListen()},
+  stoplisten:function(){stopListen()},
+  again:function(){var q=S.sess;q.step="ask";q.heard="";q.an=null;q.micErr="";q.tok++;q.played=q.tok;render();startListen()},
+  dictcheck:function(){
+    var q=S.sess,t=(q.draft||"").trim();
+    if(!t){toast("Fale no microfone do teclado primeiro");return}
+    finishListen(t,null);
+  },
+  spoke:function(){var q=S.sess;if(q.mode==="sim"&&!q.live){q.ans[q.i]="";nextItem();return}q.step="res";q.dk=false;q.heard="";q.an=null;q.reps=0;render();window.scrollTo(0,0)},
+  nodk:function(){var q=S.sess;if(q.mode==="sim"&&!q.live){q.ans[q.i]="";nextItem();return}q.step="res";q.dk=true;q.heard="";q.an=null;q.reps=0;render();window.scrollTo(0,0)},
+  rate:function(b){
+    var s=S.sess,it=cur(),lv=parseInt(b.dataset.lv,10);
+    if(s.dk&&lv>0)lv=0;
+    if(lv===2&&offTopic(it,s.an))lv=1;
+    gradeSRS(it.d.id,lv);record(it.d.id,lv===2);
+    s.res[s.i]={level:lv===2?"boa":lv===1?"quase":"refazer",fixed:falaAnswer(it),ans:s.heard||""};
+    var n=(it.again||0);
+    if(s.mode!=="sim"&&((lv===0&&n<2)||(lv===1&&n<1))){
+      var c={k:it.k,d:it.d,again:n+1};
+      var at=Math.min(s.items.length,s.i+4);
+      s.items.splice(at,0,c);
+    }
+    toast(lv===2?"Boa! Volta em alguns dias.":lv===1?"Quase. Vai voltar já já.":"Sem drama. Vai voltar já já.");
+    nextItem();
+  },
+  selfok:function(){selfGrade(true)},
+  selfno:function(){selfGrade(false)},
+  batch:function(){batchCorrect()},
+  savecust:function(){
+    var el=document.getElementById("cust");if(!el)return;
+    store.custom=parseCustom(el.value);save();
+    var sk=parseCustom.skipped||0;
+    toast(store.custom.length?store.custom.length+" itens salvos"+(sk?" · "+sk+" linhas ignoradas (títulos ou frases sem «?» nem «…»)":""):"Lista vazia");render();
+  },
+  rep:function(b){
+    b.classList.add("done");
+    var all=document.querySelectorAll(".dot"),n=document.querySelectorAll(".dot.done").length,m=document.getElementById("repmsg");
+    if(m)m.textContent=n>=all.length?"Isso! A boca aprende repetindo.":n+" de "+all.length;
+    if(S.sess)S.sess.reps=n;
+    if(S.sess&&n>=all.length){
+      document.querySelectorAll("#rate button").forEach(function(x){x.disabled=false});
+      var rh=document.getElementById("ratehint");if(rh)rh.textContent="";
+    }
+  }
+};
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-act]");if(!b||b.disabled)return;
+  var f=acts[b.dataset.act];if(f)f(b);
+});
+document.addEventListener("input",function(e){
+  var t=e.target;
+  if(t.id==="ans"&&S.sess){S.sess.draft=t.value}
+  else if(t.dataset&&t.dataset.pf){store.profile[t.dataset.pf]=t.value;save()}
+});
+
+render();
+})();
+</script>
+
+</body></html>
